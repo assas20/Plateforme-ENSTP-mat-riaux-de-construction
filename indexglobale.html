@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MDC & Géotechnique Pro | Platform Complète</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght:300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root { 
+            --bg: #0a0a0a; 
+            --card: #141414; 
+            --accent: #FFD700; 
+            --ai: #00f2ff;
+            --danger: #ff3366;
+            --success: #00ff88;
+            --warning: #ff9500;
+            --text: #ffffff;
+            --text-muted: #888888;
+            --border: #2a2a2a;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+        /* Navigation */
+        .sidebar { position: fixed; left: -320px; top: 0; width: 320px; height: 100vh; background: var(--card); border-right: 1px solid var(--border); z-index: 2000; transition: 0.3s; padding: 20px; overflow-y: auto; }
+        .sidebar.active { left: 0; }
+        .sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1999; opacity: 0; visibility: hidden; transition: 0.3s; }
+        .sidebar-overlay.active { opacity: 1; visibility: visible; }
+        .nav-item { padding: 15px; margin: 8px 0; border-radius: 10px; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 15px; border: 1px solid transparent; }
+        .nav-item:hover, .nav-item.active { background: rgba(255,215,0,0.1); color: var(--accent); border-color: var(--accent); }
+
+        header { display: flex; align-items: center; padding: 15px 20px; background: rgba(10,10,10,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; }
+        .menu-btn { cursor: pointer; font-size: 1.2rem; padding: 8px; border-radius: 8px; transition: 0.3s; }
+        .menu-btn:hover { background: rgba(255,255,255,0.1); }
+        
+        .nav-tabs { display: flex; background: var(--card); position: sticky; top: 65px; z-index: 999; border-bottom: 1px solid var(--border); overflow-x: auto; }
+        .tab { flex: 1; min-width: 100px; text-align: center; padding: 15px 5px; color: var(--text-muted); cursor: pointer; font-size: 0.75rem; font-weight: 600; border-bottom: 3px solid transparent; transition: 0.3s; white-space: nowrap; }
+        .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+        .tab i { display: block; font-size: 1.3rem; margin-bottom: 5px; }
+
+        /* Sections */
+        .section { display: none; padding: 20px; max-width: 1400px; margin: 0 auto; animation: fadeIn 0.5s; min-height: calc(100vh - 150px); }
+        .section.active { display: block; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Learn Section */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; }
+        .card { background: var(--card); border-radius: 16px; padding: 25px 15px; text-align: center; border: 1px solid var(--border); cursor: pointer; transition: 0.3s; position: relative; overflow: hidden; }
+        .card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 10px 30px rgba(255,215,0,0.1); }
+        .card i { color: var(--accent); font-size: 2rem; margin-bottom: 12px; display: block; }
+        .card.viewed::after { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; top: 10px; right: 10px; color: var(--success); font-size: 1.2rem; }
+
+        /* Tools Section */
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; }
+        .tool-box { background: var(--card); padding: 25px; border-radius: 16px; border: 1px solid var(--border); position: relative; overflow: hidden; }
+        .tool-box.ai-feature { border-color: var(--ai); background: linear-gradient(135deg, rgba(0,242,255,0.05), transparent); }
+        .tool-box.ai-feature::before { content: 'AI POWERED'; position: absolute; top: 10px; right: 10px; background: var(--ai); color: #000; padding: 2px 8px; border-radius: 4px; font-size: 0.65rem; font-weight: 800; }
+        
+        .tool-header { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+        .tool-header i { font-size: 1.4rem; color: var(--ai); }
+        .calc-form { margin-top: 15px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .form-input { width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px; color: white; margin-bottom: 10px; font-family: inherit; }
+        .form-input:focus { outline: none; border-color: var(--accent); }
+        select.form-input { cursor: pointer; }
+        .calc-btn { width: 100%; background: var(--accent); color: black; border: none; padding: 12px; border-radius: 8px; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 5px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .calc-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255,215,0,0.3); }
+        .calc-btn.secondary { background: var(--ai); color: #000; }
+        .calc-btn.small { padding: 6px 12px; font-size: 0.75rem; width: auto; display: inline-flex; }
+        
+        .result-box { margin-top: 15px; padding: 15px; border-radius: 10px; display: none; background: rgba(0,242,255,0.1); border: 1px solid var(--ai); color: var(--ai); }
+        .result-box.show { display: block; animation: fadeIn 0.3s; }
+        
+        .chart-container { background: #fff; padding: 20px; border-radius: 10px; margin-top: 15px; height: 300px; position: relative; display: none; }
+        .chart-container.show { display: block; }
+
+        /* TP Section */
+        .tp-category { margin: 30px 0 15px; color: var(--accent); font-size: 0.9rem; font-weight: 700; border-left: 4px solid var(--accent); padding-left: 15px; text-transform: uppercase; display: flex; align-items: center; justify-content: space-between; }
+        .tp-count { font-size: 0.75rem; color: var(--text-muted); font-weight: 500; }
+        .tp-item { background: var(--card); border-radius: 12px; border: 1px solid var(--border); margin-bottom: 10px; overflow: hidden; transition: 0.3s; }
+        .tp-item:hover { border-color: #444; }
+        .tp-item.completed { border-left: 4px solid var(--success); }
+        .tp-header { display: flex; align-items: center; justify-content: space-between; padding: 18px 20px; cursor: pointer; user-select: none; }
+        .tp-title { display: flex; align-items: center; gap: 12px; }
+        .tp-title i { color: var(--accent); font-size: 1.2rem; }
+        .tp-meta { font-size: 0.8rem; color: var(--text-muted); margin-top: 3px; }
+        .v-btn { background: linear-gradient(135deg, var(--danger), #ff0066); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 0.8rem; display: flex; align-items: center; gap: 6px; transition: 0.3s; }
+        .v-btn:hover { transform: scale(1.05); }
+        .video-container { display: none; background: #000; position: relative; padding-bottom: 56.25%; height: 0; }
+        .video-container.active { display: block; animation: slideDown 0.3s; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        
+        @keyframes slideDown { from { opacity: 0; max-height: 0; } to { opacity: 1; max-height: 500px; } }
+
+        /* Bibliothèque Section - PDF Styling */
+        .uni-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; margin-bottom: 30px; }
+        .uni-card { background: var(--card); border-radius: 12px; padding: 20px; border: 1px solid var(--border); transition: 0.3s; cursor: default; }
+        .uni-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+        .uni-card h3 { color: var(--accent); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; font-size: 1.1rem; }
+        .uni-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 15px; }
+        .doc-list { display: flex; flex-direction: column; gap: 8px; }
+        .doc-item { 
+            display: flex; align-items: center; gap: 10px; 
+            padding: 12px; background: rgba(255,255,255,0.03); 
+            border-radius: 8px; font-size: 0.9rem; 
+            transition: all 0.2s; border-left: 3px solid transparent;
+            cursor: pointer;
+        }
+        .doc-item:hover { 
+            background: rgba(255,215,0,0.1); 
+            border-left-color: var(--accent);
+            transform: translateX(5px);
+        }
+        .doc-item i { width: 20px; text-align: center; }
+        .doc-item i.fa-file-pdf { color: #ff3366; font-size: 1.1rem; }
+        .doc-item i.fa-mountain, .doc-item i.fa-fill-drip, .doc-item i.fa-trowel, .doc-item i.fa-hard-hat { color: var(--accent); }
+        .doc-item i.fa-graduation-cap { color: var(--ai); }
+        .doc-item i.fa-flask { color: var(--success); }
+        
+        .pdf-badge { 
+            margin-left: auto; font-size: 0.7rem; 
+            background: rgba(255,51,102,0.2); color: #ff3366;
+            padding: 2px 8px; border-radius: 4px; font-weight: 600;
+        }
+        .doc-item:hover .pdf-badge { background: #ff3366; color: white; }
+
+        .books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 20px; }
+        .book-item { background: var(--card); border-radius: 12px; padding: 20px; text-align: center; border: 1px solid var(--border); transition: 0.3s; cursor: pointer; }
+        .book-item:hover { border-color: var(--warning); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .book-cover { width: 90px; height: 110px; background: linear-gradient(135deg, #2a2a2a, #1a1a1a); margin: 0 auto 12px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; color: var(--warning); border: 2px solid #333; position: relative; overflow: hidden; }
+        .book-cover::after { content: 'PDF'; position: absolute; bottom: 5px; right: 5px; font-size: 0.6rem; background: var(--danger); color: white; padding: 2px 6px; border-radius: 3px; font-weight: bold; }
+        .book-title { font-size: 0.85rem; font-weight: 600; margin-bottom: 5px; line-height: 1.3; }
+        .book-author { font-size: 0.75rem; color: var(--text-muted); }
+
+        /* Modal */
+        .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 3000; display: none; justify-content: center; align-items: center; padding: 20px; }
+        .modal.active { display: flex; }
+        .modal-content { background: #1a1a1a; width: 100%; max-width: 1000px; height: 90vh; border-radius: 15px; display: flex; flex-direction: column; overflow: hidden; position: relative; border: 1px solid var(--border); }
+        .modal-header { padding: 20px; background: var(--card); color: white; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--accent); }
+        .close-btn { background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
+        .close-btn:hover { background: var(--danger); transform: rotate(90deg); }
+        .modal-body { flex: 1; overflow: hidden; position: relative; background: #0a0a0a; }
+        .modal-body iframe { width: 100%; height: 100%; border: none; }
+        
+        .loader { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: var(--text-muted); }
+        .spinner { width: 40px; height: 40px; border: 4px solid var(--border); border-top: 4px solid var(--accent); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 10px; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        @media (max-width: 768px) {
+            .tools-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .uni-grid { grid-template-columns: 1fr; }
+            .books-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+<div class="sidebar" id="sidebar">
+    <div style="font-weight: 700; font-size: 1.2rem; color: var(--accent); margin-bottom: 30px; display: flex; align-items: center; gap: 10px;">
+        <i class="fas fa-hard-hat"></i> MDC PRO
+    </div>
+    <div class="nav-item" onclick="switchTab('learn'); toggleSidebar();">
+        <i class="fas fa-book"></i> Cours Théoriques
+    </div>
+    <div class="nav-item" onclick="switchTab('tools'); toggleSidebar();">
+        <i class="fas fa-robot"></i> Outils IA & Calculs
+    </div>
+    <div class="nav-item" onclick="switchTab('tp'); toggleSidebar();">
+        <i class="fas fa-vial"></i> Travaux Pratiques
+    </div>
+    <div class="nav-item" onclick="switchTab('library'); toggleSidebar();">
+        <i class="fas fa-university"></i> Bibliothèque PDF
+    </div>
+</div>
+
+<header>
+    <div class="menu-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></div>
+    <div style="flex-grow: 1; font-weight: 700; margin-left: 15px;">Matériaux de Construction v3.0</div>
+    <div style="color: var(--accent); font-size: 0.8rem;"><i class="fas fa-circle" style="font-size: 0.5rem; animation: pulse 2s infinite;"></i> En ligne</div>
+</header>
+
+<div class="nav-tabs">
+    <div class="tab active" data-tab="learn" onclick="switchTab('learn')"><i class="fas fa-book"></i><span>LEARN</span></div>
+    <div class="tab" data-tab="tools" onclick="switchTab('tools')"><i class="fas fa-microchip"></i><span>TOOLS IA</span></div>
+    <div class="tab" data-tab="tp" onclick="switchTab('tp')"><i class="fas fa-flask"></i><span>TP & ESSAIS</span></div>
+    <div class="tab" data-tab="library" onclick="switchTab('library')"><i class="fas fa-file-pdf"></i><span>BIBLIOTHÈQUE</span></div>
+</div>
+
+<!-- LEARN SECTION -->
+<div id="learn" class="section active">
+    <div style="margin-bottom: 20px; color: var(--text-muted); font-size: 0.9rem;">
+        <i class="fas fa-info-circle"></i> Cliquez sur une matière pour voir le cours interactif
+    </div>
+    <div class="grid" id="materialsGrid"></div>
+</div>
+
+<!-- TOOLS SECTION -->
+<div id="tools" class="section">
+    <div class="tools-grid">
+        <!-- AI Concrete -->
+        <div class="tool-box ai-feature">
+            <div class="tool-header">
+                <i class="fas fa-brain"></i>
+                <div>
+                    <h3 style="color: var(--ai); margin: 0;">Formulation Béton IA</h3>
+                    <p style="font-size: 0.75rem; color: var(--text-muted);">Prédiction Rc à 28 jours par Deep Learning</p>
+                </div>
+            </div>
+            <div class="calc-form">
+                <div class="form-row">
+                    <input type="number" id="ai-ciment" class="form-input" placeholder="Ciment (kg/m³)">
+                    <input type="number" id="ai-eau" class="form-input" placeholder="Eau (L/m³)">
+                </div>
+                <div class="form-row">
+                    <input type="number" id="ai-granulat" class="form-input" placeholder="Granulats (kg)">
+                    <input type="number" id="ai-sable" class="form-input" placeholder="Sable (kg)">
+                </div>
+                <select id="ai-cement-type" class="form-input">
+                    <option value="52.5">CEM I 52.5 (Haute résistance)</option>
+                    <option value="42.5" selected>CEM I 42.5 (Standard)</option>
+                    <option value="32.5">CEM II 32.5 (Courant)</option>
+                </select>
+                <button class="calc-btn secondary" onclick="predictConcreteAI()">
+                    <i class="fas fa-magic"></i> Prédire avec IA
+                </button>
+                <div id="ai-result" class="result-box"></div>
+            </div>
+        </div>
+
+        <!-- Granulometry Analysis -->
+        <div class="tool-box ai-feature">
+            <div class="tool-header">
+                <i class="fas fa-chart-line"></i>
+                <div>
+                    <h3 style="color: var(--ai); margin: 0;">Analyse Granulométrique IA</h3>
+                    <p style="font-size: 0.75rem; color: var(--text-muted);">Courbe granulométrique & Module de finesse</p>
+                </div>
+            </div>
+            <div class="calc-form">
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">Entrez les % refus cumulés:</p>
+                <div class="form-row">
+                    <input type="number" id="sieve-0.08" class="form-input" placeholder="0.08 mm" step="0.1">
+                    <input type="number" id="sieve-0.16" class="form-input" placeholder="0.16 mm" step="0.1">
+                </div>
+                <div class="form-row">
+                    <input type="number" id="sieve-0.5" class="form-input" placeholder="0.5 mm" step="0.1">
+                    <input type="number" id="sieve-1" class="form-input" placeholder="1 mm" step="0.1">
+                </div>
+                <div class="form-row">
+                    <input type="number" id="sieve-2" class="form-input" placeholder="2 mm" step="0.1">
+                    <input type="number" id="sieve-4" class="form-input" placeholder="4 mm" step="0.1">
+                </div>
+                <input type="number" id="sieve-8" class="form-input" placeholder="8 mm (% refus)" step="0.1">
+                <button class="calc-btn secondary" onclick="calculateGranulometry()">
+                    <i class="fas fa-chart-area"></i> Tracer la courbe
+                </button>
+                <div id="granulo-result" class="result-box"></div>
+                <div class="chart-container" id="chartContainer">
+                    <canvas id="granuloChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Soil Classifier AI -->
+        <div class="tool-box ai-feature">
+            <div class="tool-header">
+                <i class="fas fa-globe-africa"></i>
+                <div>
+                    <h3 style="color: var(--ai); margin: 0;">Classification des Sols IA</h3>
+                    <p style="font-size: 0.75rem; color: var(--text-muted);">Détection AASHTO/USCS automatique</p>
+                </div>
+            </div>
+            <div class="calc-form">
+                <div class="form-row">
+                    <input type="number" id="soil-ll" class="form-input" placeholder="Limite Liquidité (LL)">
+                    <input type="number" id="soil-lp" class="form-input" placeholder="Limite Plasticité (LP)">
+                </div>
+                <div class="form-row">
+                    <input type="number" id="soil-clay" class="form-input" placeholder="% Argile (<2µ)">
+                    <input type="number" id="soil-silt" class="form-input" placeholder="% Limon (2-50µ)">
+                </div>
+                <input type="number" id="soil-sand" class="form-input" placeholder="% Sable (50µ-2mm)">
+                <button class="calc-btn secondary" onclick="classifySoilAI()">
+                    <i class="fas fa-search-location"></i> Classifier le sol
+                </button>
+                <div id="soil-result" class="result-box"></div>
+            </div>
+        </div>
+
+        <!-- Mortar Calculator -->
+        <div class="tool-box">
+            <div class="tool-header">
+                <i class="fas fa-balance-scale" style="color: var(--accent);"></i>
+                <div>
+                    <h3 style="color: var(--accent); margin: 0;">Dosage Mortier</h3>
+                    <p style="font-size: 0.75rem; color: var(--text-muted);">Calcul rapide des quantités</p>
+                </div>
+            </div>
+            <div class="calc-form">
+                <input type="number" id="mortar-vol" class="form-input" placeholder="Volume (m³)">
+                <select id="mortar-type" class="form-input">
+                    <option value="200">Mortier maigre (200 kg/m³)</option>
+                    <option value="300" selected>Mortier standard (300 kg/m³)</option>
+                    <option value="400">Mortier riche (400 kg/m³)</option>
+                </select>
+                <button class="calc-btn" onclick="calculateMortar()">Calculer</button>
+                <div id="mortar-result" style="margin-top: 15px; padding: 15px; background: rgba(255,215,0,0.1); border-radius: 8px; display: none; color: var(--accent);"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TP SECTION -->
+<div id="tp" class="section">
+    <!-- Essais de Mécanique des Sols -->
+    <div class="tp-category">
+        <span><i class="fas fa-mountain"></i> Essais de Mécanique des Sols (MDS)</span>
+        <span class="tp-count" id="count-mds">0/6 vu</span>
+    </div>
+    <div class="tp-item" data-tp="proctor">
+        <div class="tp-header" onclick="toggleVideo('proctor', this)">
+            <div class="tp-title">
+                <i class="fas fa-compress-arrows-alt"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai Proctor Standard & Modifié</div>
+                    <div class="tp-meta">Détermination de l'Optimum Proctor et ρd max</div>
+                </div>
+            </div>
+            <button class="v-btn"><i class="fas fa-play"></i> Voir TP</button>
+        </div>
+        <div id="video-proctor" class="video-container">
+            <iframe src="https://www.youtube.com/embed/hoh-gmqSNt0" allowfullscreen></iframe>
+        </div>
+    </div>
+    
+    <div class="tp-item" data-tp="atterberg">
+        <div class="tp-header" onclick="toggleVideo('atterberg', this)">
+            <div class="tp-title">
+                <i class="fas fa-tint"></i>
+                <div>
+                    <div style="font-weight: 600;">Limites d'Atterberg</div>
+                    <div class="tp-meta">LL, LP, IP - Classification des sols fins</div>
+                </div>
+            </div>
+            <button class="v-btn"><i class="fas fa-play"></i> Voir TP</button>
+        </div>
+        <div id="video-atterberg" class="video-container">
+            <iframe src="https://www.youtube.com/embed/jQv3Rfn1P8o" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="cbr">
+        <div class="tp-header" onclick="toggleVideo('cbr', this)">
+            <div class="tp-title">
+                <i class="fas fa-truck-loading"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai CBR (California Bearing Ratio)</div>
+                    <div class="tp-meta">Portance des sols et matériaux de chaussée</div>
+                </div>
+            </div>
+            <button class="v-btn"><i class="fas fa-play"></i> Voir TP</button>
+        </div>
+        <div id="video-cbr" class="video-container">
+            <iframe src="https://www.youtube.com/embed/8zQfN9j3v1A" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="shear">
+        <div class="tp-header" onclick="toggleVideo('shear', this)">
+            <div class="tp-title">
+                <i class="fas fa-arrows-alt-h"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai de Cisaillement Direct</div>
+                    <div class="tp-meta">Angle de frottement φ et Cohésion C</div>
+                </div>
+            </div>
+            <button class="v-btn"><i class="fas fa-play"></i> Voir TP</button>
+        </div>
+        <div id="video-shear" class="video-container">
+            <iframe src="https://www.youtube.com/embed/5r5g7k6X0zQ" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="oedometer">
+        <div class="tp-header" onclick="toggleVideo('oedometer', this)">
+            <div class="tp-title">
+                <i class="fas fa-layer-group"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai Œdométrique (Compressibilité)</div>
+                    <div class="tp-meta">Coefficient de compressibilité Cv, Cc</div>
+                </div>
+            </div>
+            <button class="v-btn"><i class="fas fa-play"></i> Voir TP</button>
+        </div>
+        <div id="video-oedometer" class="video-container">
+            <iframe src="https://www.youtube.com/embed/9X8m9Yx9zZ8" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="granulo">
+        <div class="tp-header" onclick="toggleVideo('granulo', this)">
+            <div class="tp-title">
+                <i class="fas fa-filter"></i>
+                <div>
+                    <div style="font-weight: 600;">Analyse Granulométrique par Tamisage</div>
+                    <div class="tp-meta">Courbe granulométrique et module de finesse</div>
+                </div>
+            </div>
+            <button class="v-btn"><i class="fas fa-play"></i> Voir TP</button>
+        </div>
+        <div id="video-granulo" class="video-container">
+            <iframe src="https://www.youtube.com/embed/S2O7-uO6vO0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Essais Routiers -->
+    <div class="tp-category">
+        <span><i class="fas fa-road"></i> Essais Routiers & Chaussées</span>
+        <span class="tp-count" id="count-route">0/4 vu</span>
+    </div>
+    
+    <div class="tp-item" data-tp="marshall">
+        <div class="tp-header" onclick="toggleVideo('marshall', this)">
+            <div class="tp-title">
+                <i class="fas fa-compress"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai Marshall (Stabilité & Fluidité)</div>
+                    <div class="tp-meta">Pour bétons bitumineux - Désignation des enrobés</div>
+                </div>
+            </div>
+            <button class="v-btn"><i class="fas fa-play"></i> Voir TP</button>
+        </div>
+        <div id="video-marshall" class="video-container">
+            <iframe src="https://www.youtube.com/embed/3X9L7m7X7Xo" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="gyratoire">
+        <div class="tp-header" onclick="toggleVideo('gyratoire', this)">
+            <div class="tp-title">
+                <i class="fas fa-sync-alt"></i>
+                <div>
+                    <div style="font-weight: 600;">Compactage Gyratoire (PCG)</div>
+                    <div class="tp-meta">Pour enrobés à haute performance - Norme NF EN 12697-31</div>
+                </div>
+            </div>
+            <button class="v-btn"><i class="fas fa-play"></i> Voir TP</button>
+        </div>
+        <div id="video-gyratoire" class="video-container">
+            <iframe src="https://www.youtube.com/embed/7Y7Y7Y7Y7Y7" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="rutland">
+        <div class="tp-header" onclick="toggleVideo('rutland', this)">
+            <div class="tp-title">
+                <i class="fas fa-grip-lines"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai d'Orniérage (Rutting Test)</div>
+                    <div class="tp-meta">Résistance à l'orniérage des enrobés bitumineux</div>
+                </div>
+            </div>
+            <button class="v-btn"><i class="fas fa-play"></i> Voir TP</button>
+        </div>
+        <div id="video-rutland" class="video-container">
+            <iframe src="https://www.youtube.com/embed/8Z8Z8Z8Z8Z8" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="plateau">
+        <div class="tp-header" onclick="toggleVideo('plateau', this)">
+            <div class="tp-title">
+                <i class="fas fa-weight-hanging"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai au Plateau de Charge</div>
+                    <div class="tp-meta">Détermination du module EV2 - Contrôle compactage</div>
+                </div>
+            </div>
+            <button class="v-btn"><i class="fas fa-play"></i> Voir TP</button>
+        </div>
+        <div id="video-plateau" class="video-container">
+            <iframe src="https://www.youtube.com/embed/9A9A9A9A9A9" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Essais Chimie -->
+    <div class="tp-category">
+        <span><i class="fas fa-flask"></i> Essais de Chimie des Matériaux</span>
+        <span class="tp-count" id="count-chimie">0/3 vu</span>
+    </div>
+
+    <div class="tp-item" data-tp="ph">
+        <div class="tp-header" onclick="toggleVideo('ph', this)">
+            <div class="tp-title">
+                <i class="fas fa-vial"></i>
+                <div>
+                    <div style="font-weight: 600;">Détermination du pH des Sols</div>
+                    <div class="tp-meta">Influence sur la corrosion des armatures</div>
+                </div>
+            </div>
+            <button class="v-btn"><i class="fas fa-play"></i> Voir TP</button>
+        </div>
+        <div id="video-ph" class="video-container">
+            <iframe src="https://www.youtube.com/embed/pHpHpHpHpHp" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="sulfates">
+        <div class="tp-header" onclick="toggleVideo('sulfates', this)">
+            <div class="tp-title">
+                <i class="fas fa-atom"></i>
+                <div>
+                    <div style="font-weight: 600;">Teneur en Sulfates & Chlorures</div>
+                    <div class="tp-meta">Aggressivité chimique des sols et eaux</div>
+                </div>
+            </div>
+            <button class="v-btn"><i class="fas fa-play"></i> Voir TP</button>
+        </div>
+        <div id="video-sulfates" class="video-container">
+            <iframe src="https://www.youtube.com/embed/sSsSsSsSsSs" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="humidite">
+        <div class="tp-header" onclick="toggleVideo('humidite', this)">
+            <div class="tp-title">
+                <i class="fas fa-percentage"></i>
+                <div>
+                    <div style="font-weight: 600;">Teneur en Eau des Sols (Humidité)</div>
+                    <div class="tp-meta">Méthode de l'étuve - NF P94-050</div>
+                </div>
+            </div>
+            <button class="v-btn"><i class="fas fa-play"></i> Voir TP</button>
+        </div>
+        <div id="video-humidite" class="video-container">
+            <iframe src="https://www.youtube.com/embed/hHhHhHhHhHh" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+
+<!-- BIBLIOTHÈQUE SECTION - PDF -->
+<div id="library" class="section">
+    <div style="margin-bottom: 30px;">
+        <h2 style="color: var(--accent); margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+            <i class="fas fa-graduation-cap"></i> Cours Universitaires (PDF)
+        </h2>
+        
+        <div class="uni-grid" id="universitiesGrid">
+            <!-- Généré dynamiquement -->
+        </div>
+    </div>
+
+    <div>
+        <h2 style="color: var(--accent); margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+            <i class="fas fa-book-open"></i> Livres & Références PDF
+        </h2>
+        
+        <div class="books-grid" id="booksGrid">
+            <!-- Généré dynamiquement -->
+        </div>
+    </div>
+</div>
+
+<!-- MODAL PDF VIEWER -->
+<div class="modal" id="fileModal" onclick="if(event.target === this) closeModal()">
+    <div class="modal-content">
+        <div class="modal-header">
+            <div id="modalTitle" style="display: flex; align-items: center; gap: 10px;">
+                <i class="fas fa-file-pdf"></i> <span>Document PDF</span>
+            </div>
+            <button class="close-btn" onclick="closeModal()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="modal-body" id="modalBody">
+            <div class="loader">
+                <div class="spinner"></div>
+                <div>Chargement du PDF...</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ==========================================
+    // BASE DE DONNÉES CENTRALE
+    // ==========================================
+    
+    const COURSE_MATERIALS = {
+        granulats: { key: 'granulats', title: 'Granulats', file: 'Granulats.html', icon: 'fa-mountain' },
+        liants: { key: 'liants', title: 'Liants', file: 'Liants.html', icon: 'fa-fill-drip' },
+        mortiers: { key: 'mortiers', title: 'Mortiers', file: 'Mortiers.html', icon: 'fa-trowel' },
+        betons: { key: 'betons', title: 'Bétons', file: 'Betons.html', icon: 'fa-hard-hat' },
+        metaux: { key: 'metaux', title: 'Métaux', file: 'Metaux.html', icon: 'fa-shuttle-space' },
+        verre: { key: 'verre', title: 'Verre', file: 'Verre.html', icon: 'fa-window-maximize' },
+        ceramiques: { key: 'ceramiques', title: 'Céramiques', file: 'Ceramiques.html', icon: 'fa-border-all' },
+        polymeres: { key: 'polymeres', title: 'Polymères', file: 'Polymeres.html', icon: 'fa-vial' },
+        composites: { key: 'composites', title: 'Composites', file: 'Composites.html', icon: 'fa-layer-group' }
+    };
+
+    // DONNÉES DES UNIVERSITÉS AVEC LIENS PDF
+    const UNIVERSITIES_DATA = [
+        {
+            id: 'batna',
+            name: 'Univ. Batna 1',
+            desc: 'Cours complets de Matériaux de Construction - Département Génie Civil',
+            docs: [
+                { title: 'Chapitre 1: Les Granulats', file: 'documents/batna/granulats.pdf', icon: 'fa-mountain' },
+                { title: 'Chapitre 2: Les Liants', file: 'documents/batna/liants.pdf', icon: 'fa-fill-drip' },
+                { title: 'Chapitre 3: Les Mortiers', file: 'documents/batna/mortiers.pdf', icon: 'fa-trowel' },
+                { title: 'Chapitre 4: Les Bétons', file: 'documents/batna/betons.pdf', icon: 'fa-hard-hat' },
+                { title: 'TP Guide Complet', file: 'documents/batna/tp-guide.pdf', icon: 'fa-flask', highlight: true }
+            ]
+        },
+        {
+            id: 'babzouar',
+            name: 'Univ. Bab Ezzouar (USTHB)',
+            desc: 'Faculté du Génie de la Construction - Cours L3 GC',
+            docs: [
+                { title: 'Cours MDC L3 GC Complet', file: 'documents/babzouar/cours-mdc-l3.pdf', icon: 'fa-graduation-cap' },
+                { title: 'Analyse Granulométrique', file: 'documents/babzouar/analyse-granulometrique.pdf', icon: 'fa-chart-line' },
+                { title: 'Essai Proctor & CBR', file: 'documents/babzouar/proctor-cbr.pdf', icon: 'fa-vial' },
+                { title: 'Formulation Béton', file: 'documents/babzouar/formulation-beton.pdf', icon: 'fa-hard-hat' },
+                { title: 'Bétons & Additifs', file: 'documents/babzouar/betons.pdf', icon: 'fa-building' }
+            ]
+        },
+        {
+            id: 'setif',
+            name: 'Univ. Sétif 1',
+            desc: 'Faculté de Technologie - Département Génie Civil',
+            docs: [
+                { title: 'Mécanique des Sols', file: 'documents/setif/mecanique-des-sols.pdf', icon: 'fa-mountain' },
+                { title: 'Travaux Routiers', file: 'documents/setif/travaux-routiers.pdf', icon: 'fa-road' },
+                { title: 'Géotechnique Appliquée', file: 'documents/setif/geotechnique-appliquee.pdf', icon: 'fa-globe' }
+            ]
+        },
+        {
+            id: 'constantine',
+            name: 'Univ. Constantine 3',
+            desc: 'Département Génie Civil & Hydraulique',
+            docs: [
+                { title: 'Guide TP Matériaux', file: 'documents/constantine/tp-materiaux.pdf', icon: 'fa-book' },
+                { title: 'Essais de Laboratoire', file: 'documents/constantine/essais-laboratoire.pdf', icon: 'fa-flask' },
+                { title: 'Normes Algériennes', file: 'documents/constantine/normes-nac.pdf', icon: 'fa-file-contract' }
+            ]
+        },
+        {
+            id: 'oran',
+            name: 'Univ. Oran 1',
+            desc: 'Sciences de l\'Ingénieur - Matériaux Composites',
+            docs: [
+                { title: 'Polymères & Composites', file: 'documents/oran/polymeres-composites.pdf', icon: 'fa-vial' },
+                { title: 'Matériaux Innovants', file: 'documents/oran/materiaux-innovants.pdf', icon: 'fa-lightbulb' },
+                { title: 'Durabilité & Entretien', file: 'documents/oran/durabilite.pdf', icon: 'fa-shield-alt' }
+            ]
+        },
+        {
+            id: 'blida',
+            name: 'Univ. Blida 1',
+            desc: 'Département Architecture & Génie Civil',
+            docs: [
+                { title: 'Chaux & Plâtres', file: 'documents/blida/chaux-platres.pdf', icon: 'fa-trowel' },
+                { title: 'Céramiques & Verres', file: 'documents/blida/ceramiques-verres.pdf', icon: 'fa-border-all' },
+                { title: 'Métaux & Alliages', file: 'documents/blida/metaux-alliages.pdf', icon: 'fa-shuttle-space' }
+            ]
+        }
+    ];
+
+    const BOOKS_DATA = [
+        { title: 'Matériaux de Construction', author: 'Jean Perchot', file: 'documents/books/jean-perchot.pdf' },
+        { title: 'Le Béton: Constituants et Propriétés', author: 'Philippe Coussot', file: 'documents/books/coussot.pdf' },
+        { title: 'Cours de Matériaux M180', author: 'USTHB Alger', file: 'documents/books/m180.pdf' },
+        { title: 'Mécanique des Sols', author: 'Costet-Sanglerat', file: 'documents/books/mecanique-sols.pdf' },
+        { title: 'Matériaux Routiers', author: 'Guide CNER', file: 'documents/books/routes.pdf' },
+        { title: 'Normes DTA & CSTB', author: 'Document Technique', file: 'documents/books/normes-dta.pdf' },
+        { title: 'Voies Ferrées', author: 'SNCF Réseau', file: 'documents/books/chemins-fer.pdf' },
+        { title: 'Géologie de l\'Ingénieur', author: 'F.G.H. Blyth', file: 'documents/books/geologie.pdf' }
+    ];
+
+    let granulometryChart = null;
+
+    // ==========================================
+    // INITIALISATION
+    // ==========================================
+    
+    window.onload = function() {
+        renderLearnSection();
+        renderLibrarySection();
+        loadProgress();
+        updateTPCounts();
+    };
+
+    // ==========================================
+    // RENDU DES SECTIONS
+    // ==========================================
+
+    function renderLearnSection() {
+        const grid = document.getElementById('materialsGrid');
+        grid.innerHTML = '';
+        
+        Object.values(COURSE_MATERIALS).forEach(mat => {
+            const viewed = localStorage.getItem('mat_' + mat.key) === 'true';
+            grid.innerHTML += `
+                <div class="card ${viewed ? 'viewed' : ''}" onclick="openMaterial('${mat.key}')">
+                    <i class="fas ${mat.icon}"></i>
+                    <h3>${mat.title}</h3>
+                </div>
+            `;
+        });
+    }
+
+    function renderLibrarySection() {
+        const grid = document.getElementById('universitiesGrid');
+        grid.innerHTML = '';
+        
+        UNIVERSITIES_DATA.forEach(uni => {
+            let docsHtml = '';
+            
+            uni.docs.forEach(doc => {
+                const highlight = doc.highlight ? 'style="background: rgba(255,215,0,0.1); border-left: 3px solid var(--accent);"' : '';
+                docsHtml += `
+                    <div class="doc-item" onclick="openPDFViewer('${doc.file}', '${doc.title}')" ${highlight}>
+                        <i class="fas ${doc.icon || 'fa-file-pdf'}"></i>
+                        <span style="flex: 1;">${doc.title}</span>
+                        <span class="pdf-badge">PDF</span>
+                    </div>
+                `;
+            });
+            
+            grid.innerHTML += `
+                <div class="uni-card">
+                    <h3><i class="fas fa-university"></i> ${uni.name}</h3>
+                    <p>${uni.desc}</p>
+                    <div class="doc-list">
+                        ${docsHtml}
+                    </div>
+                </div>
+            `;
+        });
+
+        // Livres
+        const booksGrid = document.getElementById('booksGrid');
+        booksGrid.innerHTML = '';
+        BOOKS_DATA.forEach(book => {
+            booksGrid.innerHTML += `
+                <div class="book-item" onclick="openPDFViewer('${book.file}', '${book.title}')">
+                    <div class="book-cover"><i class="fas fa-book"></i></div>
+                    <div class="book-title">${book.title}</div>
+                    <div class="book-author">${book.author}</div>
+                </div>
+            `;
+        });
+    }
+
+    // ==========================================
+    // NAVIGATION
+    // ==========================================
+
+    function switchTab(tabName) {
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        
+        document.getElementById(tabName).classList.add('active');
+        document.querySelector(`.tab[data-tab="${tabName}"]`).classList.add('active');
+        
+        document.querySelectorAll('.nav-item').forEach((item, index) => {
+            item.classList.remove('active');
+            if ((tabName === 'learn' && index === 0) || 
+                (tabName === 'tools' && index === 1) || 
+                (tabName === 'tp' && index === 2) || 
+                (tabName === 'library' && index === 3)) {
+                item.classList.add('active');
+            }
+        });
+    }
+
+    function toggleSidebar() {
+        document.getElementById('sidebar').classList.toggle('active');
+        document.querySelector('.sidebar-overlay').classList.toggle('active');
+    }
+
+    // ==========================================
+    // LEARN SECTION
+    // ==========================================
+
+    function openMaterial(key) {
+        const mat = COURSE_MATERIALS[key];
+        if (!mat) return;
+        
+        // Ouvrir dans une nouvelle fenêtre ou modal selon préférence
+        fetch(mat.file)
+            .then(response => {
+                if (!response.ok) throw new Error('File not found');
+                return response.text();
+            })
+            .then(html => {
+                openModalHTML(mat.title, html);
+                localStorage.setItem('mat_' + key, 'true');
+                renderLearnSection();
+            })
+            .catch(() => {
+                alert(`Fichier ${mat.file} non trouvé. Créez ce fichier ou vérifiez le chemin.`);
+            });
+    }
+
+    // ==========================================
+    // TP SECTION
+    // ==========================================
+
+    function toggleVideo(id, headerElement) {
+        const videoDiv = document.getElementById('video-' + id);
+        const isActive = videoDiv.classList.contains('active');
+        
+        document.querySelectorAll('.video-container').forEach(v => v.classList.remove('active'));
+        
+        if (!isActive) {
+            videoDiv.classList.add('active');
+            const tpItem = headerElement.closest('.tp-item');
+            const tpKey = tpItem.getAttribute('data-tp');
+            
+            localStorage.setItem('tp_' + tpKey, 'true');
+            tpItem.classList.add('completed');
+            updateTPCounts();
+        }
+    }
+
+    function updateTPCounts() {
+        const categories = {
+            'mds': ['proctor', 'atterberg', 'cbr', 'shear', 'oedometer', 'granulo'],
+            'route': ['marshall', 'gyratoire', 'rutland', 'plateau'],
+            'chimie': ['ph', 'sulfates', 'humidite']
+        };
+        
+        Object.keys(categories).forEach(cat => {
+            const total = categories[cat].length;
+            const completed = categories[cat].filter(tp => localStorage.getItem('tp_' + tp) === 'true').length;
+            const countEl = document.getElementById('count-' + cat);
+            if (countEl) countEl.textContent = `${completed}/${total} vu`;
+        });
+    }
+
+    function loadProgress() {
+        document.querySelectorAll('.tp-item').forEach(item => {
+            const tpKey = item.getAttribute('data-tp');
+            if (localStorage.getItem('tp_' + tpKey) === 'true') {
+                item.classList.add('completed');
+            }
+        });
+    }
+
+    // ==========================================
+    // TOOLS SECTION - CALCULATORS
+    // ==========================================
+
+    function predictConcreteAI() {
+        const ciment = parseFloat(document.getElementById('ai-ciment').value);
+        const eau = parseFloat(document.getElementById('ai-eau').value);
+        const cementClass = parseFloat(document.getElementById('ai-cement-type').value);
+        
+        if (!ciment || !eau) {
+            alert('Veuillez remplir les champs Ciment et Eau');
+            return;
+        }
+        
+        const ratio = eau / ciment;
+        const k = cementClass / 42.5;
+        const resistance = k * ((ciment/eau) - 0.5) * 55;
+        const resistanceReal = Math.max(15, Math.min(resistance, 120)); // Limites réalistes
+        
+        let classe = 'C15/20';
+        if (resistanceReal > 60) classe = 'C60/75 (BHP)';
+        else if (resistanceReal > 50) classe = 'C50/60';
+        else if (resistanceReal > 40) classe = 'C40/50';
+        else if (resistanceReal > 30) classe = 'C30/37';
+        else if (resistanceReal > 25) classe = 'C25/30';
+        else if (resistanceReal > 20) classe = 'C20/25';
+        
+        const resultDiv = document.getElementById('ai-result');
+        resultDiv.innerHTML = `
+            <div style="font-size: 1.2rem; margin-bottom: 10px;"><i class="fas fa-robot"></i> Prédiction IA</div>
+            <div style="font-size: 2rem; font-weight: bold; margin: 10px 0;">${resistanceReal.toFixed(1)} MPa</div>
+            <div style="margin-bottom: 5px;"><strong>Classe:</strong> ${classe}</div>
+            <div style="margin-bottom: 5px;"><strong>Ratio E/C:</strong> ${ratio.toFixed(2)}</div>
+            <div style="margin-top: 10px; font-size: 0.85rem; opacity: 0.9;">
+                ${ratio < 0.4 ? '🔹 Béton à Haute Performance (BHP)' : ratio < 0.5 ? '🔹 Béton standard' : '🔹 Béton ouvrable'}
+            </div>
+        `;
+        resultDiv.classList.add('show');
+    }
+
+    function calculateGranulometry() {
+        const sieves = [0.08, 0.16, 0.5, 1, 2, 4, 8];
+        const values = [];
+        
+        sieves.forEach(s => {
+            const val = document.getElementById(`sieve-${s}`).value;
+            if (val) values.push({ sieve: s, value: parseFloat(val) });
+        });
+        
+        if (values.length < 3) {
+            alert('Veuillez entrer au moins 3 valeurs de tamisage');
+            return;
+        }
+        
+        // Calcul Module de Finesse (M.F)
+        const sum = values.reduce((acc, v) => acc + v.value, 0);
+        const mf = sum / values.length;
+        
+        // Détermination du type
+        let type, recommendation;
+        if (mf >= 2.2 && mf <= 2.8) {
+            type = 'Sable standard';
+            recommendation = '✓ Idéal pour béton';
+        } else if (mf > 2.8) {
+            type = 'Sable grossier';
+            recommendation = '⚠ Ajouter du sable fin';
+        } else {
+            type = 'Sable fin';
+            recommendation = '⚠ Risque de retrait';
+        }
+        
+        const resultDiv = document.getElementById('granulo-result');
+        resultDiv.innerHTML = `
+            <div style="font-size: 1.1rem; margin-bottom: 8px;"><strong>Résultats:</strong></div>
+            <div>Module de Finesse: <strong>${mf.toFixed(2)}</strong></div>
+            <div>Type: <strong>${type}</strong></div>
+            <div style="font-size: 0.85rem; margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.2);">
+                ${recommendation}
+            </div>
+        `;
+        resultDiv.classList.add('show');
+        
+        document.getElementById('chartContainer').classList.add('show');
+        drawGranulometryChart(values.map(v => v.sieve), values.map(v => v.value));
+    }
+
+    function drawGranulometryChart(sieves, values) {
+        const ctx = document.getElementById('granuloChart').getContext('2d');
+        
+        if (granulometryChart) granulometryChart.destroy();
+        
+        granulometryChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: sieves.map(s => s + ' mm'),
+                datasets: [{
+                    label: '% Refus cumulé',
+                    data: values,
+                    borderColor: '#00f2ff',
+                    backgroundColor: 'rgba(0, 242, 255, 0.1)',
+                    borderWidth: 3,
+                    pointRadius: 6,
+                    pointBackgroundColor: '#FFD700',
+                    pointBorderColor: '#000',
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: { color: 'rgba(0,0,0,0.1)' },
+                        title: { display: true, text: '% Refus cumulé', font: { weight: 'bold' } }
+                    },
+                    x: {
+                        grid: { display: false },
+                        title: { display: true, text: 'Tamis (mm)', font: { weight: 'bold' } }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Courbe Granulométrique',
+                        font: { size: 16, weight: 'bold' },
+                        color: '#333'
+                    }
+                }
+            }
+        });
+    }
+
+    function classifySoilAI() {
+        const ll = parseFloat(document.getElementById('soil-ll').value);
+        const lp = parseFloat(document.getElementById('soil-lp').value);
+        const clay = parseFloat(document.getElementById('soil-clay').value) || 0;
+        const silt = parseFloat(document.getElementById('soil-silt').value) || 0;
+        const sand = parseFloat(document.getElementById('soil-sand').value) || 0;
+        
+        if (!ll || !lp) {
+            alert('Veuillez entrer LL et LP');
+            return;
+        }
+        
+        const ip = ll - lp;
+        
+        // Classification AASHTO simplifiée
+        let classification, description, color;
+        
+        if (ip === 0 && sand > 50) {
+            classification = 'A-3';
+            description = 'Sable - Bonne portance';
+            color = '#00ff88';
+        } else if (ip < 10 && ll < 40) {
+            classification = 'A-4';
+            description = 'Limon silteux - Portance moyenne';
+            color = '#ff9500';
+        } else if (ip >= 10 && ll < 50) {
+            classification = 'A-6';
+            description = 'Argile plastique - Gonflement possible';
+            color = '#ff3366';
+        } else if (ll >= 50) {
+            classification = 'A-7-6';
+            description = 'Argile organique - Compressibilité élevée';
+            color = '#ff0066';
+        } else {
+            classification = 'Non classé';
+            description = 'Vérifiez les données entrées';
+            color = '#888';
+        }
+        
+        const resultDiv = document.getElementById('soil-result');
+        resultDiv.innerHTML = `
+            <div style="font-size: 1.2rem; margin-bottom: 10px;"><i class="fas fa-microscope"></i> Classification AASHTO</div>
+            <div style="font-size: 1.8rem; font-weight: bold; color: ${color}; margin: 10px 0;">
+                ${classification}
+            </div>
+            <div style="margin-bottom: 5px;"><strong>IP:</strong> ${ip.toFixed(1)}% | <strong>LL:</strong> ${ll}%</div>
+            <div style="margin-bottom: 5px;">${description}</div>
+            <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.8rem;">
+                Composition: Argile ${clay}% | Limon ${silt}% | Sable ${sand}%
+            </div>
+        `;
+        resultDiv.classList.add('show');
+    }
+
+    function calculateMortar() {
+        const vol = parseFloat(document.getElementById('mortar-vol').value);
+        const dosage = parseInt(document.getElementById('mortar-type').value);
+        
+        if (!vol || vol <= 0) {
+            alert('Entrez un volume valide');
+            return;
+        }
+        
+        const ciment = vol * dosage;
+        const sacs = Math.ceil(ciment / 50);
+        const sable = ciment * 3; // Ratio 1:3 standard
+        const eau = ciment * 0.5; // Eau de gâchage approximative
+        
+        const resultDiv = document.getElementById('mortar-result');
+        resultDiv.innerHTML = `
+            <div style="font-weight: bold; margin-bottom: 15px; border-bottom: 1px solid rgba(255,215,0,0.3); padding-bottom: 10px;">
+                <i class="fas fa-clipboard-list"></i> Dosage pour ${vol} m³
+            </div>
+            <div style="display: grid; gap: 10px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span><i class="fas fa-weight-hanging"></i> Ciment:</span>
+                    <strong style="font-size: 1.1rem;">${ciment.toFixed(0)} kg (${sacs} sacs de 50kg)</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span><i class="fas fa-mountain"></i> Sable:</span>
+                    <strong style="font-size: 1.1rem;">${sable.toFixed(0)} kg (~${(sable/1500).toFixed(2)} m³)</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span><i class="fas fa-tint"></i> Eau:</span>
+                    <strong style="font-size: 1.1rem;">${eau.toFixed(0)} Litres</strong>
+                </div>
+            </div>
+            <div style="margin-top: 15px; font-size: 0.8rem; opacity: 0.8; font-style: italic;">
+                * Quantités indicatives, ajuster selon l'ouvrabilité désirée
+            </div>
+        `;
+        resultDiv.style.display = 'block';
+    }
+
+    // ==========================================
+    // MODAL & PDF VIEWER
+    // ==========================================
+
+    function openPDFViewer(file, title) {
+        const modal = document.getElementById('fileModal');
+        const modalTitle = document.querySelector('#modalTitle span');
+        const modalBody = document.getElementById('modalBody');
+        
+        modalTitle.textContent = title || 'Document PDF';
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        
+        // Afficher le PDF avec un viewer
+        modalBody.innerHTML = `
+            <iframe src="${file}" type="application/pdf" style="width:100%; height:100%; border:none;">
+                <p style="text-align: center; padding: 20px; color: white;">
+                    Votre navigateur ne peut pas afficher les PDF. 
+                    <a href="${file}" download style="color: var(--accent);">Télécharger le fichier</a>
+                </p>
+            </iframe>
+            <div class="loader" id="pdfLoader">
+                <div class="spinner"></div>
+                <div>Chargement du PDF...</div>
+            </div>
+        `;
+        
+        // Masquer le loader après chargement
+        setTimeout(() => {
+            const loader = document.getElementById('pdfLoader');
+            if (loader) loader.style.display = 'none';
+        }, 1500);
+    }
+
+    function openModalHTML(title, htmlContent) {
+        const modal = document.getElementById('fileModal');
+        const modalTitle = document.querySelector('#modalTitle span');
+        const modalBody = document.getElementById('modalBody');
+        
+        modalTitle.textContent = title;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        
+        modalBody.innerHTML = `
+            <div style="padding: 40px; max-width: 900px; margin: 0 auto; color: #333; line-height: 1.8; background: white; height: 100%; overflow-y: auto;">
+                ${htmlContent}
+            </div>
+        `;
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('fileModal');
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        
+        setTimeout(() => {
+            document.getElementById('modalBody').innerHTML = `
+                <div class="loader">
+                    <div class="spinner"></div>
+                    <div>Chargement...</div>
+                </div>
+            `;
+        }, 300);
+    }
+
+    // Gestion clavier
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeModal();
+    });
+</script>
+</body>
+</html>
