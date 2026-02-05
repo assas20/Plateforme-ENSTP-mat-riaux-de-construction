@@ -685,9 +685,10 @@
                 <button class="tp-mode-btn web" onclick="openTPWeb('sol-sedimentometrie', 'https://assas20.github.io/TP-Sedimentometrie/')">
                     <i class="fas fa-globe"></i> Web
                 </button>
-                <button class="tp-mode-btn video" onclick="openTPVideo('sol-sedimentometrie', 'https://www.youtube.com/embed/example2')">
-                    <i class="fas fa-play"></i> Vidéo
-                </button>
+                <button class="tp-mode-btn video"
+        onclick="openTPVideo('sol-tamisage', 'https://www.youtube.com/embed/lUFFhzBU2nM?start=237')">
+    <i class="fas fa-play"></i> Vidéo
+</button>
                 <button class="tp-mode-btn pdf" onclick="openTPPDF('sol-sedimentometrie', 'documents/tp/sols/sedimentometrie.pdf')">
                     <i class="fas fa-file-pdf"></i> PDF
                 </button>
@@ -3742,21 +3743,6 @@ function loadProgress() {
             </div>
         `;
     }
-<script>
-function openTPVideo(tpId, videoUrl) {
-    const container = document.getElementById(tpId);
-    container.innerHTML = `
-        <iframe 
-            width="100%" 
-            height="400"
-            src="${videoUrl}"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-        </iframe>
-    `;
-}
-</script>
 
     function closeModal() {
         const modal = document.getElementById('fileModal');
