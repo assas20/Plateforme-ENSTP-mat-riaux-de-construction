@@ -636,359 +636,1922 @@
 </div>
 
 <!-- TP SECTION - MODIFIED WITH 3 MODES -->
+<!-- TP SECTION - MODIFIED WITH 3 MODES -->
 <div id="tp" class="section">
-    <!-- Essais de Mécanique des Sols -->
+    <!-- A – LES SOLS -->
+    
+    <!-- 1. Essais d'identification et de classification -->
     <div class="tp-category">
-        <span><i class="fas fa-mountain"></i> Essais de Mécanique des Sols (MDS)</span>
-        <span class="tp-count" id="count-mds">0/6 vu</span>
+        <span><i class="fas fa-microscope"></i> A – LES SOLS: Essais d'identification et de classification</span>
+        <span class="tp-count" id="count-sols-id">0/7 vu</span>
     </div>
     
-    <div class="tp-item" data-tp="proctor">
-        <div class="tp-header">
-            <div class="tp-title">
-                <i class="fas fa-compress-arrows-alt"></i>
-                <div>
-                    <div style="font-weight: 600;">Essai Equivalent Sable ES</div>
-                    <div class="tp-meta">Cet essai est utilisé pour évaluer la propreté des sables utilisés pour la composition du béton.</div>
-                </div>
-            </div>
-            <div class="tp-modes">
-                <button class="tp-mode-btn web" onclick="openTPContent('proctor', 'web', 'https://assas20.github.io/TP-MDS-ES/')">
-                    <i class="fas fa-globe"></i> Web
-                </button>
-                <button class="tp-mode-btn video" onclick="openTPContent('proctor', 'video', 'https://www.youtube.com/watch?v=Od3M22EVKSw&t=253s')">
-                    <i class="fas fa-play"></i> Vidéo
-                </button>
-                <button class="tp-mode-btn pdf" onclick="openTPPDF('proctor', 'documents/tp/ES.pdf')">
-                    <i class="fas fa-file-pdf"></i> PDF
-                </button>
-            </div>
-        </div>
-        <div id="video-proctor" class="video-container">
-            <iframe src="" allowfullscreen></iframe>
-        </div>
-    </div>
-    
-    <div class="tp-item" data-tp="atterberg">
-        <div class="tp-header">
-            <div class="tp-title">
-                <i class="fas fa-tint"></i>
-                <div>
-                    <div style="font-weight: 600;">Limites d'Atterberg</div>
-                    <div class="tp-meta">LL, LP, IP - Classification des sols fins</div>
-                </div>
-            </div>
-            <div class="tp-modes">
-                <button class="tp-mode-btn web" onclick="openTPContent('atterberg', 'web', 'https://assas20.github.io/TP-Atterberg/')">
-                    <i class="fas fa-globe"></i> Web
-                </button>
-                <button class="tp-mode-btn video" onclick="openTPContent('atterberg', 'video', 'https://www.youtube.com/embed/jQv3Rfn1P8o')">
-                    <i class="fas fa-play"></i> Vidéo
-                </button>
-                <button class="tp-mode-btn pdf" onclick="openTPPDF('atterberg', 'documents/tp/atterberg.pdf')">
-                    <i class="fas fa-file-pdf"></i> PDF
-                </button>
-            </div>
-        </div>
-        <div id="video-atterberg" class="video-container">
-            <iframe src="" allowfullscreen></iframe>
-        </div>
-    </div>
-
-    <div class="tp-item" data-tp="cbr">
-        <div class="tp-header">
-            <div class="tp-title">
-                <i class="fas fa-truck-loading"></i>
-                <div>
-                    <div style="font-weight: 600;">Essai CBR (California Bearing Ratio)</div>
-                    <div class="tp-meta">Portance des sols et matériaux de chaussée</div>
-                </div>
-            </div>
-            <div class="tp-modes">
-                <button class="tp-mode-btn web" onclick="openTPContent('cbr', 'web', 'https://assas20.github.io/TP-CBR/')">
-                    <i class="fas fa-globe"></i> Web
-                </button>
-                <button class="tp-mode-btn video" onclick="openTPContent('cbr', 'video', 'https://www.youtube.com/embed/8zQfN9j3v1A')">
-                    <i class="fas fa-play"></i> Vidéo
-                </button>
-                <button class="tp-mode-btn pdf" onclick="openTPPDF('cbr', 'documents/tp/cbr.pdf')">
-                    <i class="fas fa-file-pdf"></i> PDF
-                </button>
-            </div>
-        </div>
-        <div id="video-cbr" class="video-container">
-            <iframe src="" allowfullscreen></iframe>
-        </div>
-    </div>
-
-    <div class="tp-item" data-tp="shear">
-        <div class="tp-header">
-            <div class="tp-title">
-                <i class="fas fa-arrows-alt-h"></i>
-                <div>
-                    <div style="font-weight: 600;">Essai de Cisaillement Direct</div>
-                    <div class="tp-meta">Angle de frottement φ et Cohésion C</div>
-                </div>
-            </div>
-            <div class="tp-modes">
-                <button class="tp-mode-btn web" onclick="openTPContent('shear', 'web', 'https://assas20.github.io/TP-Cisaillement/')">
-                    <i class="fas fa-globe"></i> Web
-                </button>
-                <button class="tp-mode-btn video" onclick="openTPContent('shear', 'video', 'https://www.youtube.com/embed/5r5g7k6X0zQ')">
-                    <i class="fas fa-play"></i> Vidéo
-                </button>
-                <button class="tp-mode-btn pdf" onclick="openTPPDF('shear', 'documents/tp/cisaillement.pdf')">
-                    <i class="fas fa-file-pdf"></i> PDF
-                </button>
-            </div>
-        </div>
-        <div id="video-shear" class="video-container">
-            <iframe src="" allowfullscreen></iframe>
-        </div>
-    </div>
-
-    <div class="tp-item" data-tp="oedometer">
-        <div class="tp-header">
-            <div class="tp-title">
-                <i class="fas fa-layer-group"></i>
-                <div>
-                    <div style="font-weight: 600;">Essai Œdométrique (Compressibilité)</div>
-                    <div class="tp-meta">Coefficient de compressibilité Cv, Cc</div>
-                </div>
-            </div>
-            <div class="tp-modes">
-                <button class="tp-mode-btn web" onclick="openTPContent('oedometer', 'web', 'https://assas20.github.io/TP-Oedometre/')">
-                    <i class="fas fa-globe"></i> Web
-                </button>
-                <button class="tp-mode-btn video" onclick="openTPContent('oedometer', 'video', 'https://www.youtube.com/embed/9X8m9Yx9zZ8')">
-                    <i class="fas fa-play"></i> Vidéo
-                </button>
-                <button class="tp-mode-btn pdf" onclick="openTPPDF('oedometer', 'documents/tp/oedometre.pdf')">
-                    <i class="fas fa-file-pdf"></i> PDF
-                </button>
-            </div>
-        </div>
-        <div id="video-oedometer" class="video-container">
-            <iframe src="" allowfullscreen></iframe>
-        </div>
-    </div>
-
-    <div class="tp-item" data-tp="granulo">
+    <div class="tp-item" data-tp="sol-tamisage">
         <div class="tp-header">
             <div class="tp-title">
                 <i class="fas fa-filter"></i>
                 <div>
-                    <div style="font-weight: 600;">Analyse Granulométrique par Tamisage</div>
-                    <div class="tp-meta">Courbe granulométrique et module de finesse</div>
+                    <div style="font-weight: 600;">Analyse granulométrique par tamisage</div>
+                    <div class="tp-meta">Distribution granulométrique des sols grossiers</div>
                 </div>
             </div>
             <div class="tp-modes">
-                <button class="tp-mode-btn web" onclick="openTPContent('granulo', 'web', 'https://assas20.github.io/TP-MDS/')">
+                <button class="tp-mode-btn web" onclick="openTPWeb('sol-tamisage', 'https://assas20.github.io/TP-Granulo-Tamisage/')">
                     <i class="fas fa-globe"></i> Web
                 </button>
-                <button class="tp-mode-btn video" onclick="openTPContent('granulo', 'video', 'https://www.youtube.com/embed/2x3x4y5z6')">
+                <button class="tp-mode-btn video" onclick="openTPVideo('sol-tamisage', 'https://www.youtube.com/embed/example1')">
                     <i class="fas fa-play"></i> Vidéo
                 </button>
-                <button class="tp-mode-btn pdf" onclick="openTPPDF('granulo', 'documents/tp/granulometrie.pdf')">
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('sol-tamisage', 'documents/tp/sols/analyse-granulometrique-tamisage.pdf')">
                     <i class="fas fa-file-pdf"></i> PDF
                 </button>
             </div>
         </div>
-        <div id="video-granulo" class="video-container">
+        <div id="video-sol-tamisage" class="video-container">
             <iframe src="" allowfullscreen></iframe>
         </div>
     </div>
 
-    <!-- Essais Routiers -->
-    <div class="tp-category">
-        <span><i class="fas fa-road"></i> Essais Routiers & Chaussées</span>
-        <span class="tp-count" id="count-route">0/4 vu</span>
-    </div>
-    
-    <div class="tp-item" data-tp="marshall">
+    <div class="tp-item" data-tp="sol-sedimentometrie">
         <div class="tp-header">
             <div class="tp-title">
-                <i class="fas fa-compress"></i>
+                <i class="fas fa-flask"></i>
                 <div>
-                    <div style="font-weight: 600;">Essai Marshall (Stabilité & Fluidité)</div>
-                    <div class="tp-meta">Pour bétons bitumineux - Désignation des enrobés</div>
+                    <div style="font-weight: 600;">Analyse granulométrique par sédimentométrie</div>
+                    <div class="tp-meta">Méthode de l'hydromètre pour particules fines</div>
                 </div>
             </div>
             <div class="tp-modes">
-                <button class="tp-mode-btn web" onclick="openTPContent('marshall', 'web', 'https://assas20.github.io/TP-Marshall/')">
+                <button class="tp-mode-btn web" onclick="openTPWeb('sol-sedimentometrie', 'https://assas20.github.io/TP-Sedimentometrie/')">
                     <i class="fas fa-globe"></i> Web
                 </button>
-                <button class="tp-mode-btn video" onclick="openTPContent('marshall', 'video', 'https://www.youtube.com/embed/3X9L7m7X7Xo')">
+                <button class="tp-mode-btn video" onclick="openTPVideo('sol-sedimentometrie', 'https://www.youtube.com/embed/example2')">
                     <i class="fas fa-play"></i> Vidéo
                 </button>
-                <button class="tp-mode-btn pdf" onclick="openTPPDF('marshall', 'documents/tp/marshall.pdf')">
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('sol-sedimentometrie', 'documents/tp/sols/sedimentometrie.pdf')">
                     <i class="fas fa-file-pdf"></i> PDF
                 </button>
             </div>
         </div>
-        <div id="video-marshall" class="video-container">
+        <div id="video-sol-sedimentometrie" class="video-container">
             <iframe src="" allowfullscreen></iframe>
         </div>
     </div>
 
-    <div class="tp-item" data-tp="gyratoire">
-        <div class="tp-header">
-            <div class="tp-title">
-                <i class="fas fa-sync-alt"></i>
-                <div>
-                    <div style="font-weight: 600;">Compactage Gyratoire (PCG)</div>
-                    <div class="tp-meta">Pour enrobés à haute performance - Norme NF EN 12697-31</div>
-                </div>
-            </div>
-            <div class="tp-modes">
-                <button class="tp-mode-btn web" onclick="openTPContent('gyratoire', 'web', 'https://assas20.github.io/TP-Gyratoire/')">
-                    <i class="fas fa-globe"></i> Web
-                </button>
-                <button class="tp-mode-btn video" onclick="openTPContent('gyratoire', 'video', 'https://www.youtube.com/embed/7Y7Y7Y7Y7Y7')">
-                    <i class="fas fa-play"></i> Vidéo
-                </button>
-                <button class="tp-mode-btn pdf" onclick="openTPPDF('gyratoire', 'documents/tp/gyratoire.pdf')">
-                    <i class="fas fa-file-pdf"></i> PDF
-                </button>
-            </div>
-        </div>
-        <div id="video-gyratoire" class="video-container">
-            <iframe src="" allowfullscreen></iframe>
-        </div>
-    </div>
-
-    <div class="tp-item" data-tp="rutland">
-        <div class="tp-header">
-            <div class="tp-title">
-                <i class="fas fa-grip-lines"></i>
-                <div>
-                    <div style="font-weight: 600;">Essai d'Orniérage (Rutting Test)</div>
-                    <div class="tp-meta">Résistance à l'orniérage des enrobés bitumineux</div>
-                </div>
-            </div>
-            <div class="tp-modes">
-                <button class="tp-mode-btn web" onclick="openTPContent('rutland', 'web', 'https://assas20.github.io/TP-Rutting/')">
-                    <i class="fas fa-globe"></i> Web
-                </button>
-                <button class="tp-mode-btn video" onclick="openTPContent('rutland', 'video', 'https://www.youtube.com/embed/8Z8Z8Z8Z8Z8')">
-                    <i class="fas fa-play"></i> Vidéo
-                </button>
-                <button class="tp-mode-btn pdf" onclick="openTPPDF('rutland', 'documents/tp/rutting.pdf')">
-                    <i class="fas fa-file-pdf"></i> PDF
-                </button>
-            </div>
-        </div>
-        <div id="video-rutland" class="video-container">
-            <iframe src="" allowfullscreen></iframe>
-        </div>
-    </div>
-
-    <div class="tp-item" data-tp="plateau">
+    <div class="tp-item" data-tp="sol-poids-specifique">
         <div class="tp-header">
             <div class="tp-title">
                 <i class="fas fa-weight-hanging"></i>
                 <div>
-                    <div style="font-weight: 600;">Essai au Plateau de Charge</div>
-                    <div class="tp-meta">Détermination du module EV2 - Contrôle compactage</div>
+                    <div style="font-weight: 600;">Détermination du poids spécifique des grains</div>
+                    <div class="tp-meta">Méthode du pycnomètre</div>
                 </div>
             </div>
             <div class="tp-modes">
-                <button class="tp-mode-btn web" onclick="openTPContent('plateau', 'web', 'https://assas20.github.io/TP-Plateau/')">
+                <button class="tp-mode-btn web" onclick="openTPWeb('sol-poids-specifique', 'https://assas20.github.io/TP-Poids-Specifique/')">
                     <i class="fas fa-globe"></i> Web
                 </button>
-                <button class="tp-mode-btn video" onclick="openTPContent('plateau', 'video', 'https://www.youtube.com/embed/9A9A9A9A9A9')">
+                <button class="tp-mode-btn video" onclick="openTPVideo('sol-poids-specifique', 'https://www.youtube.com/embed/example3')">
                     <i class="fas fa-play"></i> Vidéo
                 </button>
-                <button class="tp-mode-btn pdf" onclick="openTPPDF('plateau', 'documents/tp/plateau.pdf')">
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('sol-poids-specifique', 'documents/tp/sols/poids-specifique.pdf')">
                     <i class="fas fa-file-pdf"></i> PDF
                 </button>
             </div>
         </div>
-        <div id="video-plateau" class="video-container">
+        <div id="video-sol-poids-specifique" class="video-container">
             <iframe src="" allowfullscreen></iframe>
         </div>
     </div>
 
-    <!-- Essais Chimie -->
-    <div class="tp-category">
-        <span><i class="fas fa-flask"></i> Essais de Chimie des Matériaux</span>
-        <span class="tp-count" id="count-chimie">0/3 vu</span>
-    </div>
-
-    <div class="tp-item" data-tp="ph">
+    <div class="tp-item" data-tp="sol-teneur-eau">
         <div class="tp-header">
             <div class="tp-title">
-                <i class="fas fa-vial"></i>
+                <i class="fas fa-tint"></i>
                 <div>
-                    <div style="font-weight: 600;">Détermination du pH des Sols</div>
-                    <div class="tp-meta">Influence sur la corrosion des armatures</div>
-                </div>
-            </div>
-            <div class="tp-modes">
-                <button class="tp-mode-btn web" onclick="openTPContent('ph', 'web', 'https://assas20.github.io/TP-pH/')">
-                    <i class="fas fa-globe"></i> Web
-                </button>
-                <button class="tp-mode-btn video" onclick="openTPContent('ph', 'video', 'https://www.youtube.com/embed/pHpHpHpHpHp')">
-                    <i class="fas fa-play"></i> Vidéo
-                </button>
-                <button class="tp-mode-btn pdf" onclick="openTPPDF('ph', 'documents/tp/ph.pdf')">
-                    <i class="fas fa-file-pdf"></i> PDF
-                </button>
-            </div>
-        </div>
-        <div id="video-ph" class="video-container">
-            <iframe src="" allowfullscreen></iframe>
-        </div>
-    </div>
-
-    <div class="tp-item" data-tp="sulfates">
-        <div class="tp-header">
-            <div class="tp-title">
-                <i class="fas fa-atom"></i>
-                <div>
-                    <div style="font-weight: 600;">Teneur en Sulfates & Chlorures</div>
-                    <div class="tp-meta">Aggressivité chimique des sols et eaux</div>
-                </div>
-            </div>
-            <div class="tp-modes">
-                <button class="tp-mode-btn web" onclick="openTPContent('sulfates', 'web', 'https://assas20.github.io/TP-Sulfates/')">
-                    <i class="fas fa-globe"></i> Web
-                </button>
-                <button class="tp-mode-btn video" onclick="openTPContent('sulfates', 'video', 'https://www.youtube.com/embed/sSsSsSsSsSs')">
-                    <i class="fas fa-play"></i> Vidéo
-                </button>
-                <button class="tp-mode-btn pdf" onclick="openTPPDF('sulfates', 'documents/tp/sulfates.pdf')">
-                    <i class="fas fa-file-pdf"></i> PDF
-                </button>
-            </div>
-        </div>
-        <div id="video-sulfates" class="video-container">
-            <iframe src="" allowfullscreen></iframe>
-        </div>
-    </div>
-
-    <div class="tp-item" data-tp="humidite">
-        <div class="tp-header">
-            <div class="tp-title">
-                <i class="fas fa-percentage"></i>
-                <div>
-                    <div style="font-weight: 600;">Teneur en Eau des Sols (Humidité)</div>
+                    <div style="font-weight: 600;">Détermination de la teneur en eau</div>
                     <div class="tp-meta">Méthode de l'étuve - NF P94-050</div>
                 </div>
             </div>
             <div class="tp-modes">
-                <button class="tp-mode-btn web" onclick="openTPContent('humidite', 'web', 'https://assas20.github.io/TP-Humidite/')">
+                <button class="tp-mode-btn web" onclick="openTPWeb('sol-teneur-eau', 'https://assas20.github.io/TP-Teneur-Eau/')">
                     <i class="fas fa-globe"></i> Web
                 </button>
-                <button class="tp-mode-btn video" onclick="openTPContent('humidite', 'video', 'https://www.youtube.com/embed/hHhHhHhHhHh')">
+                <button class="tp-mode-btn video" onclick="openTPVideo('sol-teneur-eau', 'https://www.youtube.com/embed/example4')">
                     <i class="fas fa-play"></i> Vidéo
                 </button>
-                <button class="tp-mode-btn pdf" onclick="openTPPDF('humidite', 'documents/tp/humidite.pdf')">
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('sol-teneur-eau', 'documents/tp/sols/teneur-eau.pdf')">
                     <i class="fas fa-file-pdf"></i> PDF
                 </button>
             </div>
         </div>
-        <div id="video-humidite" class="video-container">
+        <div id="video-sol-teneur-eau" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="sol-atterberg">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-water"></i>
+                <div>
+                    <div style="font-weight: 600;">Détermination des limites d'Atterberg</div>
+                    <div class="tp-meta">Limite de liquidité (LL) et limite de plasticité (LP)</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('sol-atterberg', 'https://assas20.github.io/TP-Atterberg/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('sol-atterberg', 'https://www.youtube.com/embed/jQv3Rfn1P8o')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('sol-atterberg', 'documents/tp/sols/atterberg.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-sol-atterberg" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="sol-bleu-methylene">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-vial"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai au bleu de méthylène</div>
+                    <div class="tp-meta">Détermination de la propreté des fines</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('sol-bleu-methylene', 'https://assas20.github.io/TP-Bleu-Methylene/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('sol-bleu-methylene', 'https://www.youtube.com/embed/example5')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('sol-bleu-methylene', 'documents/tp/sols/bleu-methylene.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-sol-bleu-methylene" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="sol-equivalent-sable">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-balance-scale"></i>
+                <div>
+                    <div style="font-weight: 600;">Équivalent de sable</div>
+                    <div class="tp-meta">Évaluation de la propreté des sables</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('sol-equivalent-sable', 'https://assas20.github.io/TP-Equivalent-Sable/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('sol-equivalent-sable', 'https://www.youtube.com/embed/Od3M22EVKSw')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('sol-equivalent-sable', 'documents/tp/sols/equivalent-sable.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-sol-equivalent-sable" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- 2. Essais mécaniques de laboratoire -->
+    <div class="tp-category">
+        <span><i class="fas fa-cogs"></i> A – LES SOLS: Essais mécaniques de laboratoire</span>
+        <span class="tp-count" id="count-sols-meca">0/4 vu</span>
+    </div>
+
+    <div class="tp-item" data-tp="sol-proctor">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-compress-arrows-alt"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai Proctor (normal et modifié)</div>
+                    <div class="tp-meta">Détermination de l'optimum Proctor et de l'eau optimale</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('sol-proctor', 'https://assas20.github.io/TP-Proctor/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('sol-proctor', 'https://www.youtube.com/embed/example6')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('sol-proctor', 'documents/tp/sols/proctor.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-sol-proctor" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="sol-cbr">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-truck-loading"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai de portance CBR</div>
+                    <div class="tp-meta">California Bearing Ratio - Portance des sols</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('sol-cbr', 'https://assas20.github.io/TP-CBR/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('sol-cbr', 'https://www.youtube.com/embed/8zQfN9j3v1A')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('sol-cbr', 'documents/tp/sols/cbr.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-sol-cbr" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="sol-oedometre">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-layer-group"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai œdométrique (consolidation)</div>
+                    <div class="tp-meta">Compressibilité et tassement des sols</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('sol-oedometre', 'https://assas20.github.io/TP-Oedometre/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('sol-oedometre', 'https://www.youtube.com/embed/9X8m9Yx9zZ8')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('sol-oedometre', 'documents/tp/sols/oedometre.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-sol-oedometre" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="sol-permeabilite">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-water"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai de perméabilité</div>
+                    <div class="tp-meta">Charge constante ou variable - Perméabilité des sols</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('sol-permeabilite', 'https://assas20.github.io/TP-Permeabilite/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('sol-permeabilite', 'https://www.youtube.com/embed/example7')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('sol-permeabilite', 'documents/tp/sols/permeabilite.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-sol-permeabilite" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- 3. Essais géotechniques in situ -->
+    <div class="tp-category">
+        <span><i class="fas fa-map-marked-alt"></i> A – LES SOLS: Essais géotechniques in situ</span>
+        <span class="tp-count" id="count-sols-situ">0/7 vu</span>
+    </div>
+
+    <div class="tp-item" data-tp="sol-penetrometre-dyn">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-arrow-down"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai au pénétromètre dynamique</div>
+                    <div class="tp-meta">SPT - Dynamic Cone Penetrometer</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('sol-penetrometre-dyn', 'https://assas20.github.io/TP-Penetrometre-Dynamique/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('sol-penetrometre-dyn', 'https://www.youtube.com/embed/example8')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('sol-penetrometre-dyn', 'documents/tp/sols/penetrometre-dynamique.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-sol-penetrometre-dyn" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="sol-penetrometre-stat">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-arrow-up"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai au pénétromètre statique</div>
+                    <div class="tp-meta">CPT - Cone Penetration Test</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('sol-penetrometre-stat', 'https://assas20.github.io/TP-Penetrometre-Statique/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('sol-penetrometre-stat', 'https://www.youtube.com/embed/example9')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('sol-penetrometre-stat', 'documents/tp/sols/penetrometre-statique.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-sol-penetrometre-stat" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="sol-densite-situ">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-compress"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai de densité in situ</div>
+                    <div class="tp-meta">Méthode du sable ou du ballon</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('sol-densite-situ', 'https://assas20.github.io/TP-Densite-Situ/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('sol-densite-situ', 'https://www.youtube.com/embed/example10')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('sol-densite-situ', 'documents/tp/sols/densite-situ.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-sol-densite-situ" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="sol-carottier">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-cut"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai au carottier</div>
+                    <div class="tp-meta">Prélèvement et identification des carottes de sol</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('sol-carottier', 'https://assas20.github.io/TP-Carottier/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('sol-carottier', 'https://www.youtube.com/embed/example11')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('sol-carottier', 'documents/tp/sols/carottier.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-sol-carottier" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="sol-plateau-chargement">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-weight-hanging"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai à la plaque de chargement</div>
+                    <div class="tp-meta">Module de déformation EV2 - Contrôle de compactage</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('sol-plateau-chargement', 'https://assas20.github.io/TP-Plaque-Chargement/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('sol-plateau-chargement', 'https://www.youtube.com/embed/9A9A9A9A9A9')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('sol-plateau-chargement', 'documents/tp/sols/plateau-chargement.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-sol-plateau-chargement" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="sol-tassometre">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-ruler-vertical"></i>
+                <div>
+                    <div style="font-weight: 600;">Mesure des tassements (tassomètre)</div>
+                    <div class="tp-meta">Suivi des tassements en surface et en profondeur</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('sol-tassometre', 'https://assas20.github.io/TP-Tassometre/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('sol-tassometre', 'https://www.youtube.com/embed/example12')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('sol-tassometre', 'documents/tp/sols/tassometre.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-sol-tassometre" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="sol-inclinometre">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-arrows-alt-h"></i>
+                <div>
+                    <div style="font-weight: 600;">Mesure des déplacements horizontaux (inclinomètre)</div>
+                    <div class="tp-meta">Déplacements latéraux des ouvrages et des sols</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('sol-inclinometre', 'https://assas20.github.io/TP-Inclinometre/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('sol-inclinometre', 'https://www.youtube.com/embed/example13')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('sol-inclinometre', 'documents/tp/sols/inclinometre.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-sol-inclinometre" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- B – LES GRANULATS -->
+    
+    <!-- 1. Essais physiques et géométriques -->
+    <div class="tp-category">
+        <span><i class="fas fa-shapes"></i> B – LES GRANULATS: Essais physiques et géométriques</span>
+        <span class="tp-count" id="count-granulats-phys">0/11 vu</span>
+    </div>
+
+    <div class="tp-item" data-tp="granulats-analyse">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-filter"></i>
+                <div>
+                    <div style="font-weight: 600;">Analyse granulométrique</div>
+                    <div class="tp-meta">Tamisage des granulats - Module de finesse</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('granulats-analyse', 'https://assas20.github.io/TP-Granulats-Analyse/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('granulats-analyse', 'https://www.youtube.com/embed/example14')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('granulats-analyse', 'documents/tp/granulats/analyse-granulometrique.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-granulats-analyse" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="granulats-mv-apparente">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-weight-hanging"></i>
+                <div>
+                    <div style="font-weight: 600;">Masse volumique apparente et absolue (sable et gravier)</div>
+                    <div class="tp-meta">Méthodes de détermination des masses volumiques</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('granulats-mv-apparente', 'https://assas20.github.io/TP-MV-Apparente/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('granulats-mv-apparente', 'https://www.youtube.com/embed/example15')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('granulats-mv-apparente', 'documents/tp/granulats/masse-volumique.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-granulats-mv-apparente" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="granulats-continuite">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-chart-line"></i>
+                <div>
+                    <div style="font-weight: 600;">Indice de continuité</div>
+                    <div class="tp-meta">Coefficient d'uniformité et coefficient de courbure</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('granulats-continuite', 'https://assas20.github.io/TP-Indice-Continuite/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('granulats-continuite', 'https://www.youtube.com/embed/example16')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('granulats-continuite', 'documents/tp/granulats/indice-continuite.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-granulats-continuite" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="granulats-mv-absolue-gravier">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-water"></i>
+                <div>
+                    <div style="font-weight: 600;">Masse volumique absolue du gravier (pesée hydrostatique)</div>
+                    <div class="tp-meta">Méthode de la pesée hydrostatique</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('granulats-mv-absolue-gravier', 'https://assas20.github.io/TP-MV-Absolue-Gravier/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('granulats-mv-absolue-gravier', 'https://www.youtube.com/embed/example17')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('granulats-mv-absolue-gravier', 'documents/tp/granulats/mv-absolue-gravier.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-granulats-mv-absolue-gravier" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="granulats-aplatissement">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-compress-arrows-alt"></i>
+                <div>
+                    <div style="font-weight: 600;">Coefficient d'aplatissement</div>
+                    <div class="tp-meta">Forme des granulats - Rapport épaisseur/largeur</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('granulats-aplatissement', 'https://assas20.github.io/TP-Aplatissement/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('granulats-aplatissement', 'https://www.youtube.com/embed/example18')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('granulats-aplatissement', 'documents/tp/granulats/aplatissement.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-granulats-aplatissement" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="granulats-epaisseur-moyenne">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-ruler"></i>
+                <div>
+                    <div style="font-weight: 600;">Épaisseur moyenne des gravillons</div>
+                    <div class="tp-meta">Mesure de l'épaisseur des gravillons</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('granulats-epaisseur-moyenne', 'https://assas20.github.io/TP-Epaisseur-Moyenne/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('granulats-epaisseur-moyenne', 'https://www.youtube.com/embed/example19')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('granulats-epaisseur-moyenne', 'documents/tp/granulats/epaisseur-moyenne.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-granulats-epaisseur-moyenne" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="granulats-ecoulement-gravillons">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-tint"></i>
+                <div>
+                    <div style="font-weight: 600;">Coefficient d'écoulement des gravillons</div>
+                    <div class="tp-meta">Perméabilité des gravillons</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('granulats-ecoulement-gravillons', 'https://assas20.github.io/TP-Ecoulement-Gravillons/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('granulats-ecoulement-gravillons', 'https://www.youtube.com/embed/example20')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('granulats-ecoulement-gravillons', 'documents/tp/granulats/ecoulement-gravillons.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-granulats-ecoulement-gravillons" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="granulats-ecoulement-sables">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-stream"></i>
+                <div>
+                    <div style="font-weight: 600;">Coefficient d'écoulement des sables</div>
+                    <div class="tp-meta">Perméabilité des sables</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('granulats-ecoulement-sables', 'https://assas20.github.io/TP-Ecoulement-Sables/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('granulats-ecoulement-sables', 'https://www.youtube.com/embed/example21')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('granulats-ecoulement-sables', 'documents/tp/granulats/ecoulement-sables.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-granulats-ecoulement-sables" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="granulats-indice-rigden">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-circle"></i>
+                <div>
+                    <div style="font-weight: 600;">Indice des vides de Rigden</div>
+                    <div class="tp-meta">Compacité des granulats fins</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('granulats-indice-rigden', 'https://assas20.github.io/TP-Rigden/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('granulats-indice-rigden', 'https://www.youtube.com/embed/example22')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('granulats-indice-rigden', 'documents/tp/granulats/indice-rigden.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-granulats-indice-rigden" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="granulats-homogeneite">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-equals"></i>
+                <div>
+                    <div style="font-weight: 600;">Homogénéité des granulats (d ≥ 4 mm)</div>
+                    <div class="tp-meta">Uniformité des granulats gros</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('granulats-homogeneite', 'https://assas20.github.io/TP-Homogeneite/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('granulats-homogeneite', 'https://www.youtube.com/embed/example23')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('granulats-homogeneite', 'documents/tp/granulats/homogeneite.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-granulats-homogeneite" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- 2. Essais mécaniques et de durabilité -->
+    <div class="tp-category">
+        <span><i class="fas fa-hammer"></i> B – LES GRANULATS: Essais mécaniques et de durabilité</span>
+        <span class="tp-count" id="count-granulats-meca">0/6 vu</span>
+    </div>
+
+    <div class="tp-item" data-tp="granulats-micro-deval">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-sync-alt"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai d'usure Micro-Deval</div>
+                    <div class="tp-meta">Résistance à l'usure des granulats</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('granulats-micro-deval', 'https://assas20.github.io/TP-Micro-Deval/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('granulats-micro-deval', 'https://www.youtube.com/embed/example24')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('granulats-micro-deval', 'documents/tp/granulats/micro-deval.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-granulats-micro-deval" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="granulats-los-angeles">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-bowling-ball"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai Los Angeles</div>
+                    <div class="tp-meta">Résistance à la fragmentation</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('granulats-los-angeles', 'https://assas20.github.io/TP-Los-Angeles/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('granulats-los-angeles', 'https://www.youtube.com/embed/example25')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('granulats-los-angeles', 'documents/tp/granulats/los-angeles.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-granulats-los-angeles" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="granulats-fragmentation">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-bomb"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai de fragmentation dynamique</div>
+                    <div class="tp-meta">Résistance aux chocs répétés</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('granulats-fragmentation', 'https://assas20.github.io/TP-Fragmentation/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('granulats-fragmentation', 'https://www.youtube.com/embed/example26')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('granulats-fragmentation', 'documents/tp/granulats/fragmentation.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-granulats-fragmentation" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="granulats-polissage">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-highlighter"></i>
+                <div>
+                    <div style="font-weight: 600;">Coefficient de polissage accéléré</div>
+                    <div class="tp-meta">Polissage des gravillons routiers</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('granulats-polissage', 'https://assas20.github.io/TP-Polissage/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('granulats-polissage', 'https://www.youtube.com/embed/example27')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('granulats-polissage', 'documents/tp/granulats/polissage.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-granulats-polissage" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="granulats-friabilite">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-cookie-crumb"></i>
+                <div>
+                    <div style="font-weight: 600;">Coefficient de friabilité des sables</div>
+                    <div class="tp-meta">Résistance à l'usure des sables</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('granulats-friabilite', 'https://assas20.github.io/TP-Friabilite/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('granulats-friabilite', 'https://www.youtube.com/embed/example28')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('granulats-friabilite', 'documents/tp/granulats/friabilite.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-granulats-friabilite" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="granulats-rugosite">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-grip-lines"></i>
+                <div>
+                    <div style="font-weight: 600;">Rugosité de surface (pendule de frottement)</div>
+                    <div class="tp-meta">Adhérence des granulats bitumineux</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('granulats-rugosite', 'https://assas20.github.io/TP-Rugosite/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('granulats-rugosite', 'https://www.youtube.com/embed/example29')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('granulats-rugosite', 'documents/tp/granulats/rugosite.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-granulats-rugosite" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- 3. Essais chimiques et de propreté -->
+    <div class="tp-category">
+        <span><i class="fas fa-flask"></i> B – LES GRANULATS: Essais chimiques et de propreté</span>
+        <span class="tp-count" id="count-granulats-chimie">0/5 vu</span>
+    </div>
+
+    <div class="tp-item" data-tp="granulats-matieres-organiques">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-eye-dropper"></i>
+                <div>
+                    <div style="font-weight: 600;">Mise en évidence des matières organiques (colorimétrie)</div>
+                    <div class="tp-meta">Test de couleur aux matières organiques</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('granulats-matieres-organiques', 'https://assas20.github.io/TP-Matieres-Organiques/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('granulats-matieres-organiques', 'https://www.youtube.com/embed/example30')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('granulats-matieres-organiques', 'documents/tp/granulats/matieres-organiques.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-granulats-matieres-organiques" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="granulats-proprete-superficielle">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-hand-sparkles"></i>
+                <div>
+                    <div style="font-weight: 600;">Propreté superficielle</div>
+                    <div class="tp-meta">Évaluation de la propreté des granulats</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('granulats-proprete-superficielle', 'https://assas20.github.io/TP-Proprete/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('granulats-proprete-superficielle', 'https://www.youtube.com/embed/example31')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('granulats-proprete-superficielle', 'documents/tp/granulats/proprete-superficielle.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-granulats-proprete-superficielle" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="granulats-bleu-methylene">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-vial"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai au bleu de méthylène</div>
+                    <div class="tp-meta">Détermination de la propreté des fines</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('granulats-bleu-methylene', 'https://assas20.github.io/TP-Bleu-Methylene-Granulats/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('granulats-bleu-methylene', 'https://www.youtube.com/embed/example32')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('granulats-bleu-methylene', 'documents/tp/granulats/bleu-methylene.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-granulats-bleu-methylene" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="granulats-desagregation-sulfates">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-atom"></i>
+                <div>
+                    <div style="font-weight: 600;">Résistance à la désagrégation par sulfates</div>
+                    <div class="tp-meta">Essai de cristallisation des sulfates</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('granulats-desagregation-sulfates', 'https://assas20.github.io/TP-Desagregation-Sulfates/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('granulats-desagregation-sulfates', 'https://www.youtube.com/embed/example33')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('granulats-desagregation-sulfates', 'documents/tp/granulats/desagregation-sulfates.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-granulats-desagregation-sulfates" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="granulats-equivalent-sable">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-balance-scale"></i>
+                <div>
+                    <div style="font-weight: 600;">Équivalent de sable</div>
+                    <div class="tp-meta">Évaluation de la propreté des sables</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('granulats-equivalent-sable', 'https://assas20.github.io/TP-Equivalent-Sable-Granulats/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('granulats-equivalent-sable', 'https://www.youtube.com/embed/Od3M22EVKSw')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('granulats-equivalent-sable', 'documents/tp/granulats/equivalent-sable.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-granulats-equivalent-sable" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- C – LES BÉTONS ET LIANTS HYDRAULIQUES -->
+    <div class="tp-category">
+        <span><i class="fas fa-hard-hat"></i> C – LES BÉTONS ET LIANTS HYDRAULIQUES</span>
+        <span class="tp-count" id="count-betons">0/8 vu</span>
+    </div>
+
+    <div class="tp-item" data-tp="beton-affaissement">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-ruler-vertical"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai d'affaissement (Slump test - Cône d'Abrams)</div>
+                    <div class="tp-meta">Consistance et ouvrabilité du béton frais</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('beton-affaissement', 'https://assas20.github.io/TP-Affaissement/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('beton-affaissement', 'https://www.youtube.com/embed/example34')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('beton-affaissement', 'documents/tp/betons/affaissement.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-beton-affaissement" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="beton-etalement">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-expand"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai d'étalement (Flow test)</div>
+                    <div class="tp-meta">Fluidité des bétons auto-plaçants</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('beton-etalement', 'https://assas20.github.io/TP-Etalement/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('beton-etalement', 'https://www.youtube.com/embed/example35')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('beton-etalement', 'documents/tp/betons/etalement.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-beton-etalement" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="beton-sclerometre">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-hammer"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai de dureté au choc (scléromètre)</div>
+                    <div class="tp-meta">Résistance en place du béton durci</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('beton-sclerometre', 'https://assas20.github.io/TP-Sclerometre/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('beton-sclerometre', 'https://www.youtube.com/embed/example36')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('beton-sclerometre', 'documents/tp/betons/sclerometre.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-beton-sclerometre" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="beton-retrait-gonflement">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-compress-arrows-alt"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai de retrait et de gonflement</div>
+                    <div class="tp-meta">Variations dimensionnelles du béton</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('beton-retrait-gonflement', 'https://assas20.github.io/TP-Retrait-Gonflement/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('beton-retrait-gonflement', 'https://www.youtube.com/embed/example37')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('beton-retrait-gonflement', 'documents/tp/betons/retrait-gonflement.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-beton-retrait-gonflement" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="beton-fissuration">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-wave-square"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai de fissuration</div>
+                    <div class="tp-meta">Propension à la fissuration plastique</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('beton-fissuration', 'https://assas20.github.io/TP-Fissuration/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('beton-fissuration', 'https://www.youtube.com/embed/example38')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('beton-fissuration', 'documents/tp/betons/fissuration.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-beton-fissuration" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="ciment-consistance">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-clock"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai de consistance normale (Vicat)</div>
+                    <div class="tp-meta">Temps de prise et consistance de la pâte de ciment</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('ciment-consistance', 'https://assas20.github.io/TP-Vicat/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('ciment-consistance', 'https://www.youtube.com/embed/example39')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('ciment-consistance', 'documents/tp/betons/vicat.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-ciment-consistance" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="ciment-finesse">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-filter"></i>
+                <div>
+                    <div style="font-weight: 600;">Finesse de mouture du ciment</div>
+                    <div class="tp-meta">Surface spécifique par perméabilité à l'air</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('ciment-finesse', 'https://assas20.github.io/TP-Finesse/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('ciment-finesse', 'https://www.youtube.com/embed/example40')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('ciment-finesse', 'documents/tp/betons/finesse.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-ciment-finesse" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="ciment-stabilite">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-ruler-combined"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai de stabilité (Le Chatelier)</div>
+                    <div class="tp-meta">Expansion et stabilité volumique du ciment</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('ciment-stabilite', 'https://assas20.github.io/TP-Le-Chatelier/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('ciment-stabilite', 'https://www.youtube.com/embed/example41')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('ciment-stabilite', 'documents/tp/betons/stabilite.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-ciment-stabilite" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- D – LES PRODUITS NOIRS / LIANTS BITUMINEUX -->
+    
+    <!-- 1. Bitumes purs -->
+    <div class="tp-category">
+        <span><i class="fas fa-oil-can"></i> D – LIANTS BITUMINEUX: Bitumes purs (classe 35/50)</span>
+        <span class="tp-count" id="count-bitumes-purs">0/9 vu</span>
+    </div>
+
+    <div class="tp-item" data-tp="bitume-penetration">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-syringe"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai de pénétration à 25 °C</div>
+                    <div class="tp-meta">Dureté du bitume - NF EN 1426</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('bitume-penetration', 'https://assas20.github.io/TP-Penetration/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('bitume-penetration', 'https://www.youtube.com/embed/example42')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('bitume-penetration', 'documents/tp/bitumes/penetration.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-bitume-penetration" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="bitume-densite">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-balance-scale"></i>
+                <div>
+                    <div style="font-weight: 600;">Densité relative à 25 °C</div>
+                    <div class="tp-meta">Pycnomètre à bitume - NF EN 15326</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('bitume-densite', 'https://assas20.github.io/TP-Densite-Bitume/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('bitume-densite', 'https://www.youtube.com/embed/example43')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('bitume-densite', 'documents/tp/bitumes/densite.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-bitume-densite" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="bitume-rbtf">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-fire"></i>
+                <div>
+                    <div style="font-weight: 600;">Perte de masse au chauffage (RBTF)</div>
+                    <div class="tp-meta">163 °C pendant 5 heures - NF EN 12607-1</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('bitume-rbtf', 'https://assas20.github.io/TP-RBTF/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('bitume-rbtf', 'https://www.youtube.com/embed/example44')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('bitume-rbtf', 'documents/tp/bitumes/rbtf.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-bitume-rbtf" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="bitume-penetration-restante">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-percentage"></i>
+                <div>
+                    <div style="font-weight: 600;">Pénétration restante après chauffage</div>
+                    <div class="tp-meta">Retained Penetration - NF EN 1426</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('bitume-penetration-restante', 'https://assas20.github.io/TP-Penetration-Restante/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('bitume-penetration-restante', 'https://www.youtube.com/embed/example45')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('bitume-penetration-restante', 'documents/tp/bitumes/penetration-restante.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-bitume-penetration-restante" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="bitume-point-eclair">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-burn"></i>
+                <div>
+                    <div style="font-weight: 600;">Point d'éclair (vase ouvert)</div>
+                    <div class="tp-meta">Flash point - Cleveland - NF EN ISO 2592</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('bitume-point-eclair', 'https://assas20.github.io/TP-Point-Eclair/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('bitume-point-eclair', 'https://www.youtube.com/embed/example46')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('bitume-point-eclair', 'documents/tp/bitumes/point-eclair.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-bitume-point-eclair" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="bitume-ductilite">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-arrows-alt-h"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai de ductilité à 25 °C</div>
+                    <div class="tp-meta">Élongation du bitume - NF EN 13589</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('bitume-ductilite', 'https://assas20.github.io/TP-Ductilite/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('bitume-ductilite', 'https://www.youtube.com/embed/example47')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('bitume-ductilite', 'documents/tp/bitumes/ductilite.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-bitume-ductilite" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="bitume-solubilite">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-flask"></i>
+                <div>
+                    <div style="font-weight: 600;">Solubilité dans le tétrachloroéthylène</div>
+                    <div class="tp-meta">Pureté du bitume - NF EN 12592</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('bitume-solubilite', 'https://assas20.github.io/TP-Solubilite/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('bitume-solubilite', 'https://www.youtube.com/embed/example48')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('bitume-solubilite', 'documents/tp/bitumes/solubilite.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-bitume-solubilite" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="bitume-ramollissement">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-thermometer-half"></i>
+                <div>
+                    <div style="font-weight: 600;">Point de ramollissement (bille et anneau)</div>
+                    <div class="tp-meta">Softening Point - NF EN 1427</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('bitume-ramollissement', 'https://assas20.github.io/TP-Ramollissement/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('bitume-ramollissement', 'https://www.youtube.com/embed/example49')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('bitume-ramollissement', 'documents/tp/bitumes/ramollissement.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-bitume-ramollissement" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="bitume-paraffine">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-cube"></i>
+                <div>
+                    <div style="font-weight: 600;">Teneur en paraffine</div>
+                    <div class="tp-meta">Cire de paraffine - NF EN 12606-1</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('bitume-paraffine', 'https://assas20.github.io/TP-Paraffine/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('bitume-paraffine', 'https://www.youtube.com/embed/example50')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('bitume-paraffine', 'documents/tp/bitumes/paraffine.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-bitume-paraffine" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- 2. Bitumes fluidifiés -->
+    <div class="tp-category">
+        <span><i class="fas fa-tint"></i> D – LIANTS BITUMINEUX: Bitumes fluidifiés (cut-back)</span>
+        <span class="tp-count" id="count-bitumes-fluidifies">0/4 vu</span>
+    </div>
+
+    <div class="tp-item" data-tp="bitume-fluid-pseudo-viscosite">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-stopwatch"></i>
+                <div>
+                    <div style="font-weight: 600;">Pseudo-viscosité des bitumes fluidifiés</div>
+                    <div class="tp-meta">Viscosité à 40°C - NF EN 12846</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('bitume-fluid-pseudo-viscosite', 'https://assas20.github.io/TP-Pseudo-Viscosite/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('bitume-fluid-pseudo-viscosite', 'https://www.youtube.com/embed/example51')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('bitume-fluid-pseudo-viscosite', 'documents/tp/bitumes/pseudo-viscosite.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-bitume-fluid-pseudo-viscosite" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="bitume-fluid-densite">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-balance-scale"></i>
+                <div>
+                    <div style="font-weight: 600;">Densité relative à 25 °C</div>
+                    <div class="tp-meta">Pycnomètre pour cut-back</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('bitume-fluid-densite', 'https://assas20.github.io/TP-Densite-Cutback/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('bitume-fluid-densite', 'https://www.youtube.com/embed/example52')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('bitume-fluid-densite', 'documents/tp/bitumes/densite-cutback.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-bitume-fluid-densite" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="bitume-fluid-penetration-residu">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-percentage"></i>
+                <div>
+                    <div style="font-weight: 600;">Pénétration du résidu de distillation</div>
+                    <div class="tp-meta">Distillation de Dean-Stark</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('bitume-fluid-penetration-residu', 'https://assas20.github.io/TP-Penetration-Residu/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('bitume-fluid-penetration-residu', 'https://www.youtube.com/embed/example53')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('bitume-fluid-penetration-residu', 'documents/tp/bitumes/penetration-residu.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-bitume-fluid-penetration-residu" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="bitume-fluid-point-eclair">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-burn"></i>
+                <div>
+                    <div style="font-weight: 600;">Point d'éclair (vase clos)</div>
+                    <div class="tp-meta">Pensky-Martens - NF EN ISO 2719</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('bitume-fluid-point-eclair', 'https://assas20.github.io/TP-Point-Eclair-Ferme/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('bitume-fluid-point-eclair', 'https://www.youtube.com/embed/example54')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('bitume-fluid-point-eclair', 'documents/tp/bitumes/point-eclair-ferme.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-bitume-fluid-point-eclair" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- 3. Émulsions bitumineuses -->
+    <div class="tp-category">
+        <span><i class="fas fa-flask"></i> D – LIANTS BITUMINEUX: Émulsions bitumineuses</span>
+        <span class="tp-count" id="count-emulsions">0/7 vu</span>
+    </div>
+
+    <div class="tp-item" data-tp="emulsion-teneur-eau">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-tint"></i>
+                <div>
+                    <div style="font-weight: 600;">Teneur en eau des émulsions</div>
+                    <div class="tp-meta">Distillation - NF EN 1428</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('emulsion-teneur-eau', 'https://assas20.github.io/TP-Teneur-Eau-Emulsion/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('emulsion-teneur-eau', 'https://www.youtube.com/embed/example55')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('emulsion-teneur-eau', 'documents/tp/bitumes/emulsion-teneur-eau.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-emulsion-teneur-eau" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="emulsion-pseudo-viscosite">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-stopwatch"></i>
+                <div>
+                    <div style="font-weight: 600;">Pseudo-viscosité des émulsions</div>
+                    <div class="tp-meta">Viscosité Saybolt Furol - NF EN 12846</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('emulsion-pseudo-viscosite', 'https://assas20.github.io/TP-Viscosite-Emulsion/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('emulsion-pseudo-viscosite', 'https://www.youtube.com/embed/example56')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('emulsion-pseudo-viscosite', 'documents/tp/bitumes/emulsion-viscosite.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-emulsion-pseudo-viscosite" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="emulsion-rupture">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-hourglass-half"></i>
+                <div>
+                    <div style="font-weight: 600;">Indice de rupture</div>
+                    <div class="tp-meta">Vitesse de cassure - NF EN 12847</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('emulsion-rupture', 'https://assas20.github.io/TP-Rupture-Emulsion/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('emulsion-rupture', 'https://www.youtube.com/embed/example57')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('emulsion-rupture', 'documents/tp/bitumes/indice-rupture.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-emulsion-rupture" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="emulsion-homogeneite">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-equals"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai d'homogénéité</div>
+                    <div class="tp-meta">Stabilité à la phase</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('emulsion-homogeneite', 'https://assas20.github.io/TP-Homogeneite-Emulsion/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('emulsion-homogeneite', 'https://www.youtube.com/embed/example58')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('emulsion-homogeneite', 'documents/tp/bitumes/homogeneite.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-emulsion-homogeneite" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="emulsion-stabilite-stockage">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-box"></i>
+                <div>
+                    <div style="font-weight: 600;">Stabilité au stockage</div>
+                    <div class="tp-meta">Sédimentation après 7 jours - NF EN 12848</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('emulsion-stabilite-stockage', 'https://assas20.github.io/TP-Stabilite-Stockage/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('emulsion-stabilite-stockage', 'https://www.youtube.com/embed/example59')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('emulsion-stabilite-stockage', 'documents/tp/bitumes/stabilite-stockage.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-emulsion-stabilite-stockage" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="emulsion-adhesivite">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-link"></i>
+                <div>
+                    <div style="font-weight: 600;">Adhésivité liant–granulat</div>
+                    <div class="tp-meta">Essai de recouvrement - NF EN 13614</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('emulsion-adhesivite', 'https://assas20.github.io/TP-Adhesivite/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('emulsion-adhesivite', 'https://www.youtube.com/embed/example60')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('emulsion-adhesivite', 'documents/tp/bitumes/adhesivite.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-emulsion-adhesivite" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="emulsion-charge">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-percentage"></i>
+                <div>
+                    <div style="font-weight: 600;">Charge des particules</div>
+                    <div class="tp-meta">Teneur en résidu - NF EN 1429</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('emulsion-charge', 'https://assas20.github.io/TP-Charge-Emulsion/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('emulsion-charge', 'https://www.youtube.com/embed/example61')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('emulsion-charge', 'documents/tp/bitumes/charge-particules.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-emulsion-charge" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- E – ESSAIS SUR LES ENROBÉS BITUMINEUX -->
+    <div class="tp-category">
+        <span><i class="fas fa-road"></i> E – ESSAIS SUR LES ENROBÉS BITUMINEUX</span>
+        <span class="tp-count" id="count-enrobes">0/5 vu</span>
+    </div>
+
+    <div class="tp-item" data-tp="enrobe-marshall">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-compress"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai Marshall</div>
+                    <div class="tp-meta">Stabilité, fluidité et compacité - NF EN 12697-34</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('enrobe-marshall', 'https://assas20.github.io/TP-Marshall/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('enrobe-marshall', 'https://www.youtube.com/embed/3X9L7m7X7Xo')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('enrobe-marshall', 'documents/tp/enrobes/marshall.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-enrobe-marshall" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="enrobe-duriez">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-arrows-alt-v"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai Duriez</div>
+                    <div class="tp-meta">Résistance à la compression indirecte - NF P98-251</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('enrobe-duriez', 'https://assas20.github.io/TP-Duriez/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('enrobe-duriez', 'https://www.youtube.com/embed/example62')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('enrobe-duriez', 'documents/tp/enrobes/duriez.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-enrobe-duriez" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="enrobe-vialit">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-paper-plane"></i>
+                <div>
+                    <div style="font-weight: 600;">Essai Vialit</div>
+                    <div class="tp-meta">Adhésion liant-granulats - NF EN 12272-3</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('enrobe-vialit', 'https://assas20.github.io/TP-Vialit/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('enrobe-vialit', 'https://www.youtube.com/embed/example63')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('enrobe-vialit', 'documents/tp/enrobes/vialit.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-enrobe-vialit" class="video-container">
+            <iframe src="" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="tp-item" data-tp="enrobe-teneur-bitume">
+        <div class="tp-header">
+            <div class="tp-title">
+                <i class="fas fa-flask"></i>
+                <div>
+                    <div style="font-weight: 600;">Teneur en bitume (Kumagawa)</div>
+                    <div class="tp-meta">Extraction au solvant - NF EN 12697-1</div>
+                </div>
+            </div>
+            <div class="tp-modes">
+                <button class="tp-mode-btn web" onclick="openTPWeb('enrobe-teneur-bitume', 'https://assas20.github.io/TP-Kumagawa/')">
+                    <i class="fas fa-globe"></i> Web
+                </button>
+                <button class="tp-mode-btn video" onclick="openTPVideo('enrobe-teneur-bitume', 'https://www.youtube.com/embed/example64')">
+                    <i class="fas fa-play"></i> Vidéo
+                </button>
+                <button class="tp-mode-btn pdf" onclick="openTPPDF('enrobe-teneur-bitume', 'documents/tp/enrobes/teneur-bitume.pdf')">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+        </div>
+        <div id="video-enrobe-teneur-bitume" class="video-container">
             <iframe src="" allowfullscreen></iframe>
         </div>
     </div>
@@ -1789,68 +3352,120 @@
     // TP SECTION - MODIFIED WITH 3 MODES
     // ==========================================
 
-    function openTPContent(id, mode, url) {
-        const tpItem = document.querySelector(`.tp-item[data-tp="${id}"]`);
-        const videoDiv = document.getElementById(`video-${id}`);
-        const iframe = videoDiv.querySelector('iframe');
-        
-        // Remove active class from all containers
-        document.querySelectorAll('.video-container').forEach(v => {
+   
+    // ==========================================
+// TP SECTION - MODIFIED WITH 3 MODES (Web, Video, PDF)
+// ==========================================
+
+function openTPWeb(id, url) {
+    // فتح في صفحة جديدة (new tab)
+    window.open(url, '_blank');
+    markTPAsViewed(id);
+}
+
+function openTPVideo(id, url) {
+    const tpItem = document.querySelector(`.tp-item[data-tp="${id}"]`);
+    const videoDiv = document.getElementById(`video-${id}`);
+    const iframe = videoDiv.querySelector('iframe');
+    
+    // Close all other videos
+    document.querySelectorAll('.video-container').forEach(v => {
+        if (v.id !== `video-${id}`) {
             v.classList.remove('active');
             v.querySelector('iframe').src = '';
-        });
-        
-        // Remove active class from all buttons
-        document.querySelectorAll('.tp-mode-btn').forEach(btn => btn.classList.remove('active'));
-        
-        // Add active to clicked button
-        event.target.closest('.tp-mode-btn').classList.add('active');
-        
-        if (mode === 'web' || mode === 'video') {
-            videoDiv.classList.add('active');
-            iframe.src = url;
-            
-            // Mark as viewed
-            localStorage.setItem('tp_' + id, 'true');
-            tpItem.classList.add('completed');
-            updateTPCounts();
         }
+    });
+    
+    // Remove active class from all buttons
+    document.querySelectorAll('.tp-mode-btn').forEach(btn => btn.classList.remove('active'));
+    
+    // Add active to clicked button
+    event.target.closest('.tp-mode-btn').classList.add('active');
+    
+    // Toggle current video
+    if (videoDiv.classList.contains('active')) {
+        videoDiv.classList.remove('active');
+        iframe.src = '';
+    } else {
+        videoDiv.classList.add('active');
+        iframe.src = url;
+        markTPAsViewed(id);
     }
+}
 
-    function openTPPDF(id, file) {
-        openPDFViewer(file, 'TP - Document PDF');
-        
-        // Mark as viewed
-        const tpItem = document.querySelector(`.tp-item[data-tp="${id}"]`);
+function openTPPDF(id, file) {
+    openPDFViewer(file, 'TP - Document PDF');
+    markTPAsViewed(id);
+}
+
+function markTPAsViewed(id) {
+    const tpItem = document.querySelector(`.tp-item[data-tp="${id}"]`);
+    if (tpItem) {
         localStorage.setItem('tp_' + id, 'true');
         tpItem.classList.add('completed');
         updateTPCounts();
     }
+}
 
-    function updateTPCounts() {
-        const categories = {
-            'mds': ['proctor', 'atterberg', 'cbr', 'shear', 'oedometer', 'granulo'],
-            'route': ['marshall', 'gyratoire', 'rutland', 'plateau'],
-            'chimie': ['ph', 'sulfates', 'humidite']
-        };
+function updateTPCounts() {
+    const categories = {
+        'sols-id': 7,
+        'sols-meca': 4,
+        'sols-situ': 7,
+        'granulats-phys': 11,
+        'granulats-meca': 6,
+        'granulats-chimie': 5,
+        'betons': 8,
+        'bitumes-purs': 9,
+        'bitumes-fluidifies': 4,
+        'emulsions': 7,
+        'enrobes': 5
+    };
+    
+    Object.keys(categories).forEach(cat => {
+        const total = categories[cat];
+        let completed = 0;
         
-        Object.keys(categories).forEach(cat => {
-            const total = categories[cat].length;
-            const completed = categories[cat].filter(tp => localStorage.getItem('tp_' + tp) === 'true').length;
-            const countEl = document.getElementById('count-' + cat);
-            if (countEl) countEl.textContent = `${completed}/${total} vu`;
-        });
-    }
+        // حساب المشاهدات حسب الفئة
+        if (cat.startsWith('sols')) {
+            const prefixes = cat === 'sols-id' ? ['sol-tamisage', 'sol-sedimentometrie', 'sol-poids-specifique', 'sol-teneur-eau', 'sol-atterberg', 'sol-bleu-methylene', 'sol-equivalent-sable'] :
+                            cat === 'sols-meca' ? ['sol-proctor', 'sol-cbr', 'sol-oedometre', 'sol-permeabilite'] :
+                            ['sol-penetrometre-dyn', 'sol-penetrometre-stat', 'sol-densite-situ', 'sol-carottier', 'sol-plateau-chargement', 'sol-tassometre', 'sol-inclinometre'];
+            completed = prefixes.filter(p => localStorage.getItem('tp_' + p) === 'true').length;
+        } else if (cat.startsWith('granulats')) {
+            const prefixes = cat === 'granulats-phys' ? ['granulats-analyse', 'granulats-mv-apparente', 'granulats-continuite', 'granulats-mv-absolue-gravier', 'granulats-aplatissement', 'granulats-epaisseur-moyenne', 'granulats-ecoulement-gravillons', 'granulats-ecoulement-sables', 'granulats-indice-rigden', 'granulats-homogeneite'] :
+                            cat === 'granulats-meca' ? ['granulats-micro-deval', 'granulats-los-angeles', 'granulats-fragmentation', 'granulats-polissage', 'granulats-friabilite', 'granulats-rugosite'] :
+                            ['granulats-matieres-organiques', 'granulats-proprete-superficielle', 'granulats-bleu-methylene', 'granulats-desagregation-sulfates', 'granulats-equivalent-sable'];
+            completed = prefixes.filter(p => localStorage.getItem('tp_' + p) === 'true').length;
+        } else if (cat === 'betons') {
+            const prefixes = ['beton-affaissement', 'beton-etalement', 'beton-sclerometre', 'beton-retrait-gonflement', 'beton-fissuration', 'ciment-consistance', 'ciment-finesse', 'ciment-stabilite'];
+            completed = prefixes.filter(p => localStorage.getItem('tp_' + p) === 'true').length;
+        } else if (cat.startsWith('bitumes')) {
+            const prefixes = cat === 'bitumes-purs' ? ['bitume-penetration', 'bitume-densite', 'bitume-rbtf', 'bitume-penetration-restante', 'bitume-point-eclair', 'bitume-ductilite', 'bitume-solubilite', 'bitume-ramollissement', 'bitume-paraffine'] :
+                            ['bitume-fluid-pseudo-viscosite', 'bitume-fluid-densite', 'bitume-fluid-penetration-residu', 'bitume-fluid-point-eclair'];
+            completed = prefixes.filter(p => localStorage.getItem('tp_' + p) === 'true').length;
+        } else if (cat === 'emulsions') {
+            const prefixes = ['emulsion-teneur-eau', 'emulsion-pseudo-viscosite', 'emulsion-rupture', 'emulsion-homogeneite', 'emulsion-stabilite-stockage', 'emulsion-adhesivite', 'emulsion-charge'];
+            completed = prefixes.filter(p => localStorage.getItem('tp_' + p) === 'true').length;
+        } else if (cat === 'enrobes') {
+            const prefixes = ['enrobe-marshall', 'enrobe-duriez', 'enrobe-vialit', 'enrobe-teneur-bitume'];
+            completed = prefixes.filter(p => localStorage.getItem('tp_' + p) === 'true').length;
+        }
+        
+        const countEl = document.getElementById('count-' + cat);
+        if (countEl) countEl.textContent = `${completed}/${total} vu`;
+    });
+}
 
-    function loadProgress() {
-        document.querySelectorAll('.tp-item').forEach(item => {
-            const tpKey = item.getAttribute('data-tp');
-            if (localStorage.getItem('tp_' + tpKey) === 'true') {
-                item.classList.add('completed');
-            }
-        });
-    }
-
+function loadProgress() {
+    document.querySelectorAll('.tp-item').forEach(item => {
+        const tpKey = item.getAttribute('data-tp');
+        if (localStorage.getItem('tp_' + tpKey) === 'true') {
+            item.classList.add('completed');
+        }
+    });
+    updateTPCounts();
+}
     // ==========================================
     // TOOLS SECTION - CALCULATORS
     // ==========================================
