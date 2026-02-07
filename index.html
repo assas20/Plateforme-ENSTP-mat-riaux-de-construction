@@ -659,9 +659,14 @@
                 <button class="tp-mode-btn web" onclick="openTPWeb('sol-tamisage', 'https://assas20.github.io/TP-analyse-Granulomitrique/')">
                     <i class="fas fa-globe"></i> Web
                 </button>
-                <button class="tp-mode-btn video" onclick="openTPVideo('sol-tamisage', 'https://www.youtube.com/embed/lUFFhzBU2nM?start=237')">
-                    <i class="fas fa-play"></i> Vidéo
-                </button>
+                <button class="tp-mode-btn video"
+    onclick="openTPVideo(
+        'sol-tamisage',
+        '<iframe width=&quot;793&quot; height=&quot;447&quot; src=&quot;https://www.youtube.com/embed/lUFFhzBU2nM&quot; title=&quot;TP. Essai granulométrique (pratique et théorique)-Matériaux de construction&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen></iframe>'
+    )">
+    <i class="fas fa-play"></i> Vidéo
+</button>
+
                 <button class="tp-mode-btn pdf" onclick="openTPPDF('sol-tamisage', 'documents/tp/sols/aaa.pdf')">
                     <i class="fas fa-file-pdf"></i> PDF
                 </button>
@@ -2689,7 +2694,7 @@
         <div class="modal-header">
             <div style="display: flex; align-items: center; gap: 10px;">
                 <i class="fas fa-external-link-alt" style="color: var(--accent);"></i> 
-                <span>Module Mécanique Rationnelle - ENSTP</span>
+                <span>Module MDC - ENSTP</span>
             </div>
             <button class="close-btn" onclick="closeExternalModal()"><i class="fas fa-times"></i></button>
         </div>
