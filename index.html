@@ -656,10 +656,10 @@
             </div>
         </div>
         <div class="tp-modes">
-            <button class="tp-mode-btn web" onclick="openTPWeb('sol-tamisage', 'https://assas20.github.io/TP-analyse-Granulomitrique/')">
+            <button class="tp-mode-btn web" onclick="openTPWeb('sol-tamisage', 'https://assas20.github.io/TP-analyse-Granulomitrique/ ')">
                 <i class="fas fa-globe"></i> Web
             </button>
-            <button class="tp-mode-btn video" onclick="openTPVideo('sol-tamisage', 'https://www.youtube.com/embed/lUFFhzBU2nM?start=237')">
+            <button class="tp-mode-btn video" onclick="openTPVideo('sol-tamisage', 'https://www.youtube.com/embed/lUFFhzBU2nM?si=Qw5Z5h81R-H-FxuH')">
                 <i class="fas fa-play"></i> Vidéo
             </button>
             <button class="tp-mode-btn pdf" onclick="openTPPDF('sol-tamisage', 'documents/tp/sols/aaa.pdf')">
@@ -667,9 +667,7 @@
             </button>
         </div>
     </div>
-    <div id="video-sol-tamisage" class="video-container">
-        <iframe src="" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-    </div>
+    <!-- Supprime le video-container, on n'en a plus besoin -->
 </div>
     <div class="tp-item" data-tp="sol-sedimentometrie">
         <div class="tp-header">
@@ -3340,63 +3338,24 @@ function openTPWeb(id, url) {
 }
 
 function openTPVideo(id, url) {
-    const tpItem = document.querySelector(`.tp-item[data-tp="${id}"]`);
-    const videoDiv = document.getElementById(`video-${id}`);
-    const iframe = videoDiv.querySelector('iframe');
+    // Extraire l'ID de la vidéo de l'URL
+    let videoId = '';
     
-    // Préparer l'URL d'intégration
-    let embedUrl = url;
-    let watchUrl = url;
-    
-    if (url.includes('watch?v=')) {
-        const videoId = url.split('watch?v=')[1].split('&')[0];
-        embedUrl = `https://www.youtube.com/embed/${videoId}`;
-        watchUrl = `https://www.youtube.com/watch?v=${videoId}`;
-    } else if (url.includes('/embed/')) {
-        const videoId = url.split('/embed/')[1].split('?')[0];
-        watchUrl = `https://www.youtube.com/watch?v=${videoId}`;
+    if (url.includes('embed/')) {
+        videoId = url.split('embed/')[1].split('?')[0];
+    } else if (url.includes('watch?v=')) {
+        videoId = url.split('watch?v=')[1].split('&')[0];
     }
     
-    // Ajouter paramètres
-    embedUrl += (embedUrl.includes('?') ? '&' : '?') + 'rel=0&modestbranding=1';
+    // Construire l'URL de visionnage YouTube
+    const watchUrl = `https://www.youtube.com/watch?v=${videoId}`;
     
-    // Fermer autres vidéos
-    document.querySelectorAll('.video-container').forEach(v => {
-        if (v.id !== `video-${id}`) {
-            v.classList.remove('active');
-            v.querySelector('iframe').src = '';
-        }
-    });
+    // Ouvrir dans un nouvel onglet
+    window.open(watchUrl, '_blank');
     
-    // Activer la vidéo avec gestion d'erreur
-    if (videoDiv.classList.contains('active')) {
-        videoDiv.classList.remove('active');
-        iframe.src = '';
-    } else {
-        videoDiv.classList.add('active');
-        
-        // Ajouter un gestionnaire d'erreur
-        iframe.onerror = function() {
-            videoDiv.innerHTML = `
-                <div style="padding: 40px; text-align: center; color: white; background: #1a1a1a;">
-                    <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: var(--warning); margin-bottom: 15px;"></i>
-                    <h3 style="margin-bottom: 10px;">Vidéo non disponible</h3>
-                    <p style="margin-bottom: 20px; color: var(--text-muted);">
-                        Cette vidéo ne peut pas être lue ici.<br>
-                        Elle est peut-être privée ou restreinte.
-                    </p>
-                    <a href="${watchUrl}" target="_blank" class="calc-btn" style="display: inline-flex; text-decoration: none;">
-                        <i class="fab fa-youtube"></i> Voir sur YouTube
-                    </a>
-                </div>
-            `;
-        };
-        
-        iframe.src = embedUrl;
-        markTPAsViewed(id);
-    }
+    // Marquer comme vu
+    markTPAsViewed(id);
 }
-
 function openTPPDF(id, file) {
     openPDFViewer(file, 'TP - Document PDF');
     markTPAsViewed(id);
