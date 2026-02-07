@@ -659,9 +659,11 @@
                 <button class="tp-mode-btn web" onclick="openTPWeb('sol-tamisage', 'https://assas20.github.io/TP-analyse-Granulomitrique/')">
                     <i class="fas fa-globe"></i> Web
                 </button>
-                <button class="tp-mode-btn video" onclick="openTPVideo('sol-tamisage', 'https://www.youtube.com/embed/lUFFhzBU2nM')"></button>
-                    <i class="fas fa-play"></i> Vidéo
-                </button>
+                <button class="tp-mode-btn video"
+    onclick="openTPVideo('sol-tamisage', 'https://www.youtube.com/embed/lUFFhzBU2nM')">
+    <i class="fas fa-play"></i> Vidéo
+</button>
+
                 <button class="tp-mode-btn pdf" onclick="openTPPDF('sol-tamisage', 'documents/tp/sols/aaa.pdf')">
                     <i class="fas fa-file-pdf"></i> PDF
                 </button>
@@ -3345,24 +3347,23 @@ function openTPVideo(id, url) {
     const videoDiv = document.getElementById(`video-${id}`);
     const iframe = videoDiv.querySelector('iframe');
     
-    // Vérifier et corriger l'URL si nécessaire
+    // Préparer l'URL d'intégration
     let embedUrl = url;
+    let watchUrl = url;
     
-    // Convertir watch?v= en embed/ si nécessaire
     if (url.includes('watch?v=')) {
         const videoId = url.split('watch?v=')[1].split('&')[0];
         embedUrl = `https://www.youtube.com/embed/${videoId}`;
+        watchUrl = `https://www.youtube.com/watch?v=${videoId}`;
+    } else if (url.includes('/embed/')) {
+        const videoId = url.split('/embed/')[1].split('?')[0];
+        watchUrl = `https://www.youtube.com/watch?v=${videoId}`;
     }
     
-    // Ajouter les paramètres pour éviter les erreurs
-    if (!embedUrl.includes('?')) {
-        embedUrl += '?';
-    } else {
-        embedUrl += '&';
-    }
-    embedUrl += 'rel=0&modestbranding=1&enablejsapi=1';
+    // Ajouter paramètres
+    embedUrl += (embedUrl.includes('?') ? '&' : '?') + 'rel=0&modestbranding=1';
     
-    // Fermer toutes les autres vidéos
+    // Fermer autres vidéos
     document.querySelectorAll('.video-container').forEach(v => {
         if (v.id !== `video-${id}`) {
             v.classList.remove('active');
@@ -3370,12 +3371,30 @@ function openTPVideo(id, url) {
         }
     });
     
-    // Toggle current video
+    // Activer la vidéo avec gestion d'erreur
     if (videoDiv.classList.contains('active')) {
         videoDiv.classList.remove('active');
         iframe.src = '';
     } else {
         videoDiv.classList.add('active');
+        
+        // Ajouter un gestionnaire d'erreur
+        iframe.onerror = function() {
+            videoDiv.innerHTML = `
+                <div style="padding: 40px; text-align: center; color: white; background: #1a1a1a;">
+                    <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: var(--warning); margin-bottom: 15px;"></i>
+                    <h3 style="margin-bottom: 10px;">Vidéo non disponible</h3>
+                    <p style="margin-bottom: 20px; color: var(--text-muted);">
+                        Cette vidéo ne peut pas être lue ici.<br>
+                        Elle est peut-être privée ou restreinte.
+                    </p>
+                    <a href="${watchUrl}" target="_blank" class="calc-btn" style="display: inline-flex; text-decoration: none;">
+                        <i class="fab fa-youtube"></i> Voir sur YouTube
+                    </a>
+                </div>
+            `;
+        };
+        
         iframe.src = embedUrl;
         markTPAsViewed(id);
     }
