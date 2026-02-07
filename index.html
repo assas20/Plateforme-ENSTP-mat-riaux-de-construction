@@ -660,12 +660,12 @@
                     <i class="fas fa-globe"></i> Web
                 </button>
                 <button class="tp-mode-btn video"
-    onclick="openTPVideo(
-        'sol-tamisage',
-        '<iframe width=&quot;793&quot; height=&quot;447&quot; src=&quot;https://www.youtube.com/embed/lUFFhzBU2nM&quot; title=&quot;TP. Essai granulométrique (pratique et théorique)-Matériaux de construction&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen></iframe>'
-    )">
+    data-video="https://www.youtube.com/embed/lUFFhzBU2nM"
+    onclick="openTPVideo(this)">
     <i class="fas fa-play"></i> Vidéo
 </button>
+
+<div id="videoContainer"></div>
 
                 <button class="tp-mode-btn pdf" onclick="openTPPDF('sol-tamisage', 'documents/tp/sols/aaa.pdf')">
                     <i class="fas fa-file-pdf"></i> PDF
