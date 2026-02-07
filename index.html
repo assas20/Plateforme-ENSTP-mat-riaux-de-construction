@@ -659,7 +659,7 @@
                 <button class="tp-mode-btn web" onclick="openTPWeb('sol-tamisage', 'https://assas20.github.io/TP-analyse-Granulomitrique/')">
                     <i class="fas fa-globe"></i> Web
                 </button>
-                <button class="tp-mode-btn video" onclick="openTPVideo('sol-tamisage', 'https://www.youtube.com/embed/lUFFhzBU2nM?start=237')">
+                <button class="tp-mode-btn video" onclick="openTPVideo('sol-tamisage', 'https://www.youtube.com/embed/lUFFhzBU2nM')"></button>
                     <i class="fas fa-play"></i> Vidéo
                 </button>
                 <button class="tp-mode-btn pdf" onclick="openTPPDF('sol-tamisage', 'documents/tp/sols/aaa.pdf')">
@@ -3345,7 +3345,24 @@ function openTPVideo(id, url) {
     const videoDiv = document.getElementById(`video-${id}`);
     const iframe = videoDiv.querySelector('iframe');
     
-    // Close all other videos
+    // Vérifier et corriger l'URL si nécessaire
+    let embedUrl = url;
+    
+    // Convertir watch?v= en embed/ si nécessaire
+    if (url.includes('watch?v=')) {
+        const videoId = url.split('watch?v=')[1].split('&')[0];
+        embedUrl = `https://www.youtube.com/embed/${videoId}`;
+    }
+    
+    // Ajouter les paramètres pour éviter les erreurs
+    if (!embedUrl.includes('?')) {
+        embedUrl += '?';
+    } else {
+        embedUrl += '&';
+    }
+    embedUrl += 'rel=0&modestbranding=1&enablejsapi=1';
+    
+    // Fermer toutes les autres vidéos
     document.querySelectorAll('.video-container').forEach(v => {
         if (v.id !== `video-${id}`) {
             v.classList.remove('active');
@@ -3353,19 +3370,13 @@ function openTPVideo(id, url) {
         }
     });
     
-    // Remove active class from all buttons
-    document.querySelectorAll('.tp-mode-btn').forEach(btn => btn.classList.remove('active'));
-    
-    // Add active to clicked button
-    event.target.closest('.tp-mode-btn').classList.add('active');
-    
     // Toggle current video
     if (videoDiv.classList.contains('active')) {
         videoDiv.classList.remove('active');
         iframe.src = '';
     } else {
         videoDiv.classList.add('active');
-        iframe.src = url;
+        iframe.src = embedUrl;
         markTPAsViewed(id);
     }
 }
